@@ -1,3 +1,5 @@
+# Written for personal use, direct any issues to https://github.com/ace13/overlay
+
 EAPI=5
 
 inherit versionator 
@@ -7,7 +9,7 @@ MY_PN="PortableReferenceAssemblies"
 MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="Microsoft Portable Reference Libraries"
-HOMEPAGE="Microsoft Portable Reference Libraries"
+HOMEPAGE="http://www.microsoft.com/en-us/download/details.aspx?id=40727"
 SRC_URI="http://storage.bos.xamarin.com/bot-provisioning/PortableReferenceAssemblies-${MY_PV}.zip"
 
 SLOT="0"
