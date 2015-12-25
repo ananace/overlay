@@ -15,7 +15,8 @@ SRC_URI="http://storage.bos.xamarin.com/bot-provisioning/${MY_P}.zip"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-lang/mono app-arch/unzip"
+DEPEND="app-arch/unzip"
+RDEPEND="dev-lang/mono"
 RESTRICT="mirror"
 
 S="${WORKDIR}/${MY_P}"
