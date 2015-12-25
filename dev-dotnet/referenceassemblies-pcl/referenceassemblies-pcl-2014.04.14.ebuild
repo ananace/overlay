@@ -10,7 +10,7 @@ MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="Microsoft Portable Reference Libraries"
 HOMEPAGE="http://www.microsoft.com/en-us/download/details.aspx?id=40727"
-SRC_URI="http://storage.bos.xamarin.com/bot-provisioning/PortableReferenceAssemblies-${MY_PV}.zip"
+SRC_URI="http://storage.bos.xamarin.com/bot-provisioning/${MY_P}.zip"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
