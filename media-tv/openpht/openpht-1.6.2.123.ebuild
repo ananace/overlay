@@ -15,7 +15,14 @@ RESTRICT="mirror"
 SLOT="0"
 
 RDEPEND="media-libs/sdl-image
-	net-misc/shairplay"
+	net-misc/shairplay
+	media-libs/libmpeg2
+	media-video/rtmpdump
+	media-libs/libass
+	app-pda/libplist
+	x11-libs/libva
+	x11-libs/libvdpau
+	dev-libs/libcec"
 
 S="${WORKDIR}/OpenPHT-${PV}-${REVISION}"
 
