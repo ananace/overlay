@@ -1,28 +1,28 @@
-# Written for personal use, direct any issues to https://github.com/ace13/overlay
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit versionator 
+inherit rpm
 
-MY_PV=$(replace_all_version_separators '-')
-MY_PN="PortableReferenceAssemblies"
-MY_P="${MY_PN}-${MY_PV}"
-
-DESCRIPTION="Microsoft Portable Reference Libraries"
-HOMEPAGE="http://www.microsoft.com/en-us/download/details.aspx?id=40727"
-SRC_URI="http://storage.bos.xamarin.com/bot-provisioning/${MY_P}.zip"
+HOMEPAGE="https://developer.xamarin.com/guides/cross-platform/application_fundamentals/pcl/"
+DESCRIPTION=".NET Portable Class Library reference assemblies"
+SRC_URI="http://download.mono-project.com/repo/centos/r/referenceassemblies-pcl/referenceassemblies-pcl-${PV}-0.noarch.rpm"
+# https://www.microsoft.com/net/dotnet_library_license.htm
+# https://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm
+LICENSE="TODO"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86 ~amd64"
+IUSE=""
 
-DEPEND="app-arch/unzip"
-RDEPEND="dev-lang/mono"
+DEPEND=">=dev-lang/mono-4.0"
+RDEPEND="${DEPEND}"
 RESTRICT="mirror"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}"
 
 src_install() {
-	DIR="/usr/lib/mono/xbuild-frameworks/.NETPortable/"
-	dodir $DIR
-	cp -R v4.* ${D}/${DIR}
+	cp -R "${S}/"* "${D}/" || die "Install failed!"
 }
