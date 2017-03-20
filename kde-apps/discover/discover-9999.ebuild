@@ -39,7 +39,7 @@ DEPEND="
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qtquick)
+	$(add_qt_dep qtquickcontrols)
 	$(add_qt_dep qtxml)
 	packagekit? (
 		app-admin/packagekit-qt
