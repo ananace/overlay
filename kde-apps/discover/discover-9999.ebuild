@@ -24,8 +24,8 @@ IUSE="+notifier flatpak packagekit snap"
 RESTRICT="mirror"
 
 DEPEND="
+	$(add_frameworks_dep attica)
 	$(add_frameworks_dep karchive)
-	$(add_frameworks_dep kattica)
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep kcrash)
