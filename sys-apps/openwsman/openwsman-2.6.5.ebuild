@@ -87,9 +87,6 @@ src_compile(){
 
 src_install() {
 	cmake-utils_src_install
-
-	newinitd "${FILESDIR}"/"${PN}"d.initd "${PN}"d
-	newconfd "${FILESDIR}"/"${PN}"d.confd "${PN}"d
 }
 
 pkg_postinst() {
