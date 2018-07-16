@@ -8,7 +8,6 @@ inherit autotools eutils pam systemd
 
 DESCRIPTION="An open source Remote Desktop Protocol server"
 HOMEPAGE="http://www.xrdp.org/"
-# mirrored from https://github.com/neutrinolabs/xrdp/releases
 SRC_URI="https://github.com/neutrinolabs/xrdp/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
@@ -30,11 +29,11 @@ RDEPEND="dev-libs/openssl:0=
 	xrdpvr? ( virtual/ffmpeg:0= )"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils"
-RDEPEND="${RDEPEND}
-	|| (
-		net-misc/tigervnc:0[server,xorgmodule]
-		net-misc/x11rdp:0
-	)"
+# RDEPEND="${RDEPEND}
+#     || (
+#         net-misc/tigervnc:0[server,xorgmodule]
+#         net-misc/x11rdp:0
+#     )"
 
 src_prepare() {
 	# don't let USE=debug adjust CFLAGS
