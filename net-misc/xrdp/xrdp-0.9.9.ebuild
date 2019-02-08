@@ -40,6 +40,8 @@ src_prepare() {
 	sed -i -e 's/-g -O0//' configure.ac || die
 	# disallow root login by default
 	sed -i -e '/^AllowRootLogin/s/true/false/' sesman/sesman.ini || die
+	# explicitly use Xorg - and not a fallback to Xorg.wrap, to allow non-console users
+	sed -i -e '/^param=/s!Xorg!/usr/libexec/Xorg!' sesman/sesman.ini || die
 
 	eautoreconf
 }

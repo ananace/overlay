@@ -5,4 +5,9 @@
 [ -f /etc/rc.conf ] && . /etc/rc.conf
 export XSESSION
 
-. /etc/X11/xinit/xinitrc
+USERINITRC="$HOME/.xinitrc"
+if [ -f "$USERINITRC" ]; then
+    . "$USERINITRC"
+else
+    . /etc/X11/xinit/xinitrc
+fi
