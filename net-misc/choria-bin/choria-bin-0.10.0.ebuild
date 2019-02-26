@@ -6,10 +6,12 @@ EAPI=6
 
 inherit eutils unpacker
 
+MY_PN="${PN%-bin}"
+
 DESCRIPTION="The Choria Orchestrator Server and Broker"
 HOMEPAGE="https://choria.io"
 SRC_URI="
-	amd64? ( https://packagecloud.io/${PN}/release/packages/ubuntu/bionic/${PN}_${PV}_amd64.deb/download.deb -> ${PN}_${PV}_amd64.deb )"
+	amd64? ( https://packagecloud.io/${MY_PN}/release/packages/ubuntu/bionic/${MY_PN}_${PV}_amd64.deb/download.deb -> ${MY_PN}_${PV}_amd64.deb )"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
@@ -31,5 +33,5 @@ src_install() {
 	insinto /
 	doins -r *
 
-	fperms +x /usr/sbin/${PN}
+	fperms +x /usr/sbin/${MY_PN}
 }
