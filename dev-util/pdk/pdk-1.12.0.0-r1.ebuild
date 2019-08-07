@@ -35,9 +35,13 @@ src_install() {
 	insinto /opt
 	doins -r opt/*
 
-	# Add symlinks
+	# Ensure permissions
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/git/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.1.9/bin/"
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.4.5/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.5.3/bin/"
 
-	dosym ../../opt/puppetlabs/pdk/bin/pdk /usr/bin/pdk
+	# Add symlinks
+	dosym /opt/puppetlabs/pdk/bin/pdk /usr/bin/pdk
 }
