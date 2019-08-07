@@ -6,7 +6,7 @@ inherit eutils unpacker
 
 DESCRIPTION="Puppet Development Kit"
 HOMEPAGE="https://puppetlabs.com/"
-SRC_BASE="http://apt.puppetlabs.com/pool/xenial/PC1/${PN:0:1}/${PN}/${PN}_${PV}-1xenial"
+SRC_BASE="http://apt.puppetlabs.com/pool/buster/puppet/${PN:0:1}/${PN}/${PN}_${PV}-1buster"
 SRC_URI="
 	amd64? ( ${SRC_BASE}_amd64.deb )
 "
@@ -25,6 +25,11 @@ QA_PREBUILT="
 	/opt/puppetlabs/pdk/lib/*
 	/opt/puppetlabs/pdk/bin/*"
 
+src_prepare() {
+	rm opt/puppetlabs/pdk/private/ruby/*/lib/ruby/gems/*/gems/ffi-*/ext/ffi_c/libffi-x86_64-linux/a.out
+	rm opt/puppetlabs/pdk/share/cache/ruby/*/gems/ffi-*/ext/ffi_c/libffi-x86_64-linux/a.out
+}
+
 src_install() {
 	# Drop the opt folder into place
 	insinto /opt
@@ -32,7 +37,7 @@ src_install() {
 
 	# Add symlinks
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/bin/"
-    chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.1.9/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.4.5/bin/"
 
 	dosym ../../opt/puppetlabs/pdk/bin/pdk /usr/bin/pdk
 }
