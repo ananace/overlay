@@ -20,6 +20,8 @@ B_DIR="build/gmake.unix/"
 DEPEND="app-arch/unzip"
 RDEPEND=""
 
+RESTRICT="mirror"
+
 src_prepare() {
 	local sedargs=();
 	local c="Release";
