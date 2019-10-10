@@ -39,9 +39,12 @@ src_install() {
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/bin/"
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/git/bin/"
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/git/lib/git-core/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/puppet/ruby/2.1.0/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/puppet/ruby/2.4.0/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/puppet/ruby/2.5.0/bin/"
 	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.1.9/bin/"
-	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.4.5/bin/"
-	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.5.3/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.4.9/bin/"
+	chmod 0755 -R "${D}/opt/puppetlabs/pdk/private/ruby/2.5.7/bin/"
 
 	# Add symlinks
 	dosym /opt/puppetlabs/pdk/bin/pdk /usr/bin/pdk
