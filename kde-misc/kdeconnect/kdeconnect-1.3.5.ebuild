@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 KDE_HANDBOOK="optional"
 KDE_TEST="true"
@@ -11,7 +11,7 @@ inherit kde5
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://www.kde.org/ https://community.kde.org/KDEConnect"
-SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${KMNAME}-v${PV}.tar.xz"
+SRC_URI="https://invent.kde.org/kde/${KMNAME}/-/archive/v${PV}/${KMNAME}-v${PV}.tar.gz" # mirror://kde/stable/${PN}/${PV}/src/${KMNAME}-v${PV}.tar.xz
 
 LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
@@ -55,8 +55,8 @@ S="${WORKDIR}/${KMNAME}-v${PV}"
 
 src_prepare() {
 	sed \
-		-e 's#${LIBEXEC_INSTALL_DIR}#@KDE_INSTALL_FULL_LIBEXECDIR@#' \
-		-i daemon/kdeconnectd.desktop.cmake || die
+		-e 's#${KDE_INSTALL_FULL_LIBEXECDIR}#@KDE_INSTALL_FULL_LIBEXECDIR@#' \
+		-i daemon/org.kde.kdeconnect.daemon.desktop.cmake || die
 
 	kde5_src_prepare
 }
