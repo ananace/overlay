@@ -11,7 +11,7 @@ HOMEPAGE="http://www.xrdp.org/"
 
 PULSE_VER="12.2"
 SRC_URI="
-	https://github.com/neutrinolabs/${PN}/releases/download/v${PV}.tar.gz
+	https://github.com/neutrinolabs/${PN}/archive/v${PV}.tar.gz
 	https://freedesktop.org/software/pulseaudio/releases/pulseaudio-${PULSE_VER}.tar.xz
 "
 
