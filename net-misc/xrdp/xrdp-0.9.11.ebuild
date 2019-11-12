@@ -17,18 +17,20 @@ RESTRICT="mirror"
 IUSE="debug fuse kerberos jpeg -neutrinordp pam +pulseaudio systemd -xrdpvr"
 
 RDEPEND="dev-libs/openssl:0=
-	media-sound/pulseaudio:0=
+	pulseaudio? ( media-sound/pulseaudio:0= )
 	x11-libs/libX11:0=
 	x11-libs/libXfixes:0=
 	x11-libs/libXrandr:0=
 	fuse? ( sys-fs/fuse:0= )
 	jpeg? ( virtual/jpeg:0= )
 	kerberos? ( virtual/krb5:0= )
-	pam? ( virtual/pam:0= )
+	pam? ( sys-libs/pam:0= )
 	neutrinordp? ( net-misc/freerdp:0= )
 	xrdpvr? ( virtual/ffmpeg:0= )"
 DEPEND="${RDEPEND}
-	app-arch/xz-utils"
+	app-arch/xz-utils
+	dev-lang/nasm"
+
 # RDEPEND="${RDEPEND}
 #     || (
 #         net-misc/tigervnc:0[server,xorgmodule]
