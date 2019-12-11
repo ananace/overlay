@@ -61,8 +61,8 @@ src_unpack() {
 }
 
 src_prepare() {
-    default
-    rm _gpgorigin
+	default
+	rm _gpgorigin
 }
 
 src_install() {
