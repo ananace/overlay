@@ -1,7 +1,7 @@
 My own collection of ebuilds
 ---
 
-Please note that I'm not a Gentoo developer, so none of these ebuilds will probably have official support.
+Please note that I'm not a Gentoo developer, so none of these ebuilds will probably have official support.  
 If you find an issue then please submit it on [the issue tracker](https://github.com/ananace/overlay/issues).
 
 Pull Requests are also welcome.
