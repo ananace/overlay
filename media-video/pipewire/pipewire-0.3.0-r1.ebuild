@@ -28,6 +28,7 @@ BDEPEND="
 	)
 	vulkan? (
 		dev-util/vulkan-headers
+		media-libs/vulkan-loader
 	)
 "
 DEPEND="
