@@ -18,13 +18,16 @@ HOMEPAGE="https://pipewire.org/"
 
 LICENSE="LGPL-2.1+"
 SLOT="0/0.2"
-IUSE="alsa bluetooth doc ffmpeg gstreamer jack libav pulseaudio sdl systemd vaapi X"
+IUSE="alsa bluetooth doc ffmpeg gstreamer jack libav pulseaudio sdl systemd vaapi vulkan X"
 
 BDEPEND="
 	app-doc/xmltoman
 	doc? (
 		app-doc/doxygen
 		media-gfx/graphviz
+	)
+	vulkan? (
+		dev-util/vulkan-headers
 	)
 "
 DEPEND="
@@ -74,6 +77,7 @@ src_configure() {
 		$(meson_use gstreamer)
 		$(meson_use jack)
 		$(meson_use systemd)
+		$(meson_use vulkan)
 
 		# Compatibility layers
 		$(meson_use alsa pipewire-alsa)
