@@ -18,7 +18,7 @@ HOMEPAGE="https://pipewire.org/"
 
 LICENSE="LGPL-2.1+"
 SLOT="0/0.2"
-IUSE="alsa bluetooth doc ffmpeg gstreamer jack libav pulseaudio sdl systemd vaapi vulkan X"
+IUSE="alsa bluetooth doc ffmpeg gstreamer jack libav pulseaudio sdl systemd vulkan"
 
 BDEPEND="
 	app-doc/xmltoman
@@ -35,7 +35,10 @@ DEPEND="
 	media-libs/alsa-lib
 	sys-apps/dbus
 	virtual/libudev
-	bluetooth? ( media-libs/sbc )
+	bluetooth? (
+		media-libs/sbc
+		>=net-wireless/bluez-4.101
+	)
 	ffmpeg? (
 		!libav? ( media-video/ffmpeg:= )
 		libav? ( media-video/libav:= )
@@ -48,42 +51,27 @@ DEPEND="
 	pulseaudio? ( >=media-sound/pulseaudio-11.1 )
 	sdl? ( media-libs/libsdl2 )
 	systemd? ( sys-apps/systemd )
-	vaapi? ( x11-libs/libva )
-	X? ( x11-libs/libX11 )
 "
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	spa_use() {
-		if ! use ${1}; then
-			sed -e "/.*dependency.*'${2-$1}'/s/'${2-$1}'/'${2-$1}-disabled-by-USE-no-${1}'/" \
-				-i spa/meson.build || die
-		fi
-	}
-
-	default
-	spa_use bluetooth sbc
-	spa_use ffmpeg libavcodec
-	spa_use ffmpeg libavformat
-	spa_use ffmpeg libavfilter
-	spa_use vaapi libva
-	spa_use sdl sdl2
-	spa_use X x11
-}
 
 src_configure() {
 	local emesonargs=(
 		-Dman=true
 		$(meson_use doc docs)
 		$(meson_use gstreamer)
-		$(meson_use jack)
 		$(meson_use systemd)
-		$(meson_use vulkan)
 
 		# Compatibility layers
 		$(meson_use alsa pipewire-alsa)
 		$(meson_use jack pipewire-jack)
 		$(meson_use pulseaudio pipewire-pulseaudio)
+
+		# SPA plugins
+		$(meson_use alsa)
+		$(meson_use bluetooth bluez5)
+		$(meson_use ffmpeg)
+		$(meson_use jack)
+		$(meson_use vulkan)
 	)
 	meson_src_configure
 }
