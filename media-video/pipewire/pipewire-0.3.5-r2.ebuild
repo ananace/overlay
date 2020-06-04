@@ -48,7 +48,7 @@ DEPEND="
 		media-libs/gst-plugins-base:1.0
 	)
 	jack? ( >=media-sound/jack-audio-connection-kit-1.9.10 )
-	pulseaudio? ( >=media-sound/pulseaudio-11.1 )
+	pulseaudio? ( >=media-sound/pulseaudio-11.1[glib] )
 	sdl? ( media-libs/libsdl2 )
 	systemd? ( sys-apps/systemd )
 "
