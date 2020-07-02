@@ -25,10 +25,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-qa.patch"
-)
-
 src_install() {
 	meson_src_install
 
