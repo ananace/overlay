@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake-utils
 
-DESCRIPTION=""
+DESCRIPTION="Head tracking software for MS Windows, Linux, and Apple OSX"
 HOMEPAGE="https://github.com/opentrack/opentrack"
 
 if [[ ${PV} == "9999" ]]; then
