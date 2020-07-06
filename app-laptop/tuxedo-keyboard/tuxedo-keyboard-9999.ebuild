@@ -36,6 +36,11 @@ pkg_setup() {
 	kernel_is -lt 3 10 0 && die "This version of ${PN} requires Linux >= 3.10"
 }
 
+src_prepare() {
+       eapply_user
+       sed -i 's!KDIR := /lib/modules/$(shell uname -r)/build!KDIR := /lib/modules/'"${KV_FULL}"'/build!g' Makefile
+}
+
 src_compile() {
 	# BUILD_PARAMS="KERNELDIR=${KERNEL_DIR}"
 	linux-mod_src_compile

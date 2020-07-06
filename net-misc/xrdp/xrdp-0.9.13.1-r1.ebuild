@@ -42,8 +42,14 @@ src_prepare() {
 	sed -i -e 's/-g -O0//' configure.ac || die
 	# disallow root login by default
 	sed -i -e '/^AllowRootLogin/s/true/false/' sesman/sesman.ini || die
+
 	# explicitly use Xorg - and not a fallback to Xorg.wrap, to allow non-console users
-	sed -i -e '/^param=/s!Xorg!/usr/libexec/Xorg!' sesman/sesman.ini || die
+	if [ -e '/usr/libexec/Xorg' ]; then
+		sed -i -e '/^param=/s!Xorg!/usr/libexec/Xorg!' sesman/sesman.ini || die
+	else
+		[ -u '/usr/bin/Xorg' ] && ewarn "Can't find an non-suid Xorg binary, xrdp requires this for proper functionality. Please specify path manually in /etc/xrdp/sesman.ini"
+		# sed -i -e '/^param=/s!Xorg!/usr/bin/Xorg!' sesman/sesman.ini || die
+	fi
 
 	eautoreconf
 }
