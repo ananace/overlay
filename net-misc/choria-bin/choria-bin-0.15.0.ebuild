@@ -21,7 +21,7 @@ SLOT="0"
 RESTRICT="mirror"
 
 QA_PREBUILT="
-	usr/sbin/choria"
+	usr/bin/choria"
 
 S="${WORKDIR}"
 
@@ -33,5 +33,5 @@ src_install() {
 	insinto /
 	doins -r *
 
-	fperms +x /usr/sbin/${MY_PN}
+	fperms +x /usr/bin/${MY_PN}
 }
