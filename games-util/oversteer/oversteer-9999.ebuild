@@ -20,9 +20,10 @@ LICENSE="GPL-3.0"
 RESTRICT="mirror"
 SLOT="0"
 
-DEPEND="
-	virtual/libudev
-"
+DEPEND="dev-python/python-evdev
+	dev-python/pyudev
+	virtual/libudev"
+
 RDEPEND="${DEPEND}"
 
 src_install() {
