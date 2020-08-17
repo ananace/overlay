@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
 	SRC_URI=""
 else
-	SRC_URI="https://github.com/flightlessmango/MangoHud/releases/download/v${PV}/MangoHud-v${PV}-Source.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/flightlessmango/MangoHud/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
 	RESTRICT="mirror"
 fi
@@ -41,10 +41,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	if [[ -n ${A} ]]; then
-		mkdir "${P}"
-		cd "${P}"
+	if [[ -n "${A}" ]]; then
 		unpack ${A}
+		mv MangoHud-${PV} mangohud-${PV}
 	fi
 
 	if [[ ${PV} == "9999" ]]; then
