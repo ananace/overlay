@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=7
 
 inherit autotools eutils pam systemd
 
@@ -37,6 +37,10 @@ DEPEND="${RDEPEND}
 #         net-misc/x11rdp:0
 #     )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-gcc8.patch"
+)
+
 src_prepare() {
 	# don't let USE=debug adjust CFLAGS
 	sed -i -e 's/-g -O0//' configure.ac || die
@@ -51,6 +55,7 @@ src_prepare() {
 		# sed -i -e '/^param=/s!Xorg!/usr/bin/Xorg!' sesman/sesman.ini || die
 	fi
 
+	default
 	eautoreconf
 }
 
@@ -82,7 +87,7 @@ src_configure() {
 		# $(usex neutrinordp --enable-neutrinordp '')
 		# $(usex xrdpvr --enable-xrdpvr '')
 
-		"$(systemd_with_unitdir)"
+		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)"
 	)
 
 	econf "${myconf[@]}"
