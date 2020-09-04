@@ -6,11 +6,9 @@ EAPI="5"
 
 inherit eutils
 
-MY_PV="0.14.0-rc.1"
-
 DESCRIPTION="A simple mod manager for FreeSpace 2 Open"
 HOMEPAGE="https://github.com/ngld/knossos"
-SRC_URI="https://github.com/ngld/${PN}/archive/v${MY_PV}.tar.gz"
+SRC_URI="https://github.com/ngld/${PN}/archive/v${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64 ~x86"
@@ -30,11 +28,11 @@ DEPEND="$RDEPEND
 
 RESTRICT="mirror"
 
-S="${WORKDIR}/${PN}-${MY_PV}"
+# S="${WORKDIR}"
 
 src_prepare() {
-	yarn install
 	yarn add es6-shim
+	yarn install
 }
 
 src_configure() {
