@@ -5,20 +5,15 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit meson distutils-r1 multilib-minimal flag-o-matic
+inherit meson distutils-r1 multilib-minimal flag-o-matic git-r3
 
 DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more."
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
-IMGUI_COMMIT="96a2c4619b0c8009f684556683b2e1b6408bb0dc"
-if [[ ${PV} == "9999" ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
-	SRC_URI=""
-else
-	SRC_URI="https://github.com/flightlessmango/MangoHud/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
+if ! [[ ${PV} == "9999" ]]; then
+	EGIT_COMMIT="v${PV}"
 	KEYWORDS="-* ~amd64 ~x86"
-	RESTRICT="mirror"
 fi
 
 LICENSE="MIT"
@@ -39,17 +34,6 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	if [[ -n "${A}" ]]; then
-		unpack ${A}
-		mv MangoHud-${PV} mangohud-${PV}
-	fi
-
-	if [[ ${PV} == "9999" ]]; then
-		git-r3_src_unpack
-	fi
-}
 
 multilib_src_configure() {
 	local emesonargs=(
