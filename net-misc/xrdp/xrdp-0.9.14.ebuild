@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
-IUSE="debug fuse kerberos jpeg -neutrinordp pam +pulseaudio systemd -xrdpvr"
+IUSE="debug fuse kerberos jpeg -neutrinordp pam +pulseaudio systemd +vsock -xrdpvr"
 
 RDEPEND="dev-libs/openssl:0=
 	pulseaudio? ( media-sound/pulseaudio:0= )
@@ -85,6 +85,7 @@ src_configure() {
 		$(usex debug --enable-xrdpdebug '')
 		$(usex fuse --enable-fuse '')
 		# $(usex neutrinordp --enable-neutrinordp '')
+		$(usex vsock --enable-vsock '')
 		# $(usex xrdpvr --enable-xrdpvr '')
 
 		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)"
