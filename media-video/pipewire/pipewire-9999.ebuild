@@ -23,6 +23,7 @@ IUSE="bluetooth debug doc ffmpeg gstreamer jack pulseaudio systemd test vulkan X
 
 BDEPEND="
 	app-doc/xmltoman
+	dev-util/meson-format-array
 	doc? (
 		app-doc/doxygen
 		media-gfx/graphviz
