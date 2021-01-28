@@ -23,7 +23,7 @@ RDEPEND="
 	dev-python/requests-toolbelt"
 
 DEPEND="$RDEPEND
-	dev-utils/ninja
+	dev-util/ninja
 	sys-apps/yarn"
 
 RESTRICT="mirror"
