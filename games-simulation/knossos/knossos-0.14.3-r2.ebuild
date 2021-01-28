@@ -20,7 +20,8 @@ RDEPEND="
 	media-libs/openal
 	dev-python/PyQt5
 	dev-python/semantic_version
-	dev-python/requests-toolbelt"
+	dev-python/requests-toolbelt
+	dev-python/token-bucket"
 
 DEPEND="$RDEPEND
 	dev-util/ninja
