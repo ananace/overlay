@@ -94,7 +94,6 @@ src_configure() {
 		# Compatibility layers
 		-Dpipewire-alsa=true
 		$(meson_use jack pipewire-jack)
-		$(meson_use pulseaudio pipewire-pulseaudio)
 
 		# SPA plugins
 		$(meson_use bluetooth bluez5)
