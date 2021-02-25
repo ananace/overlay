@@ -6,7 +6,7 @@ inherit eutils unpacker
 
 DESCRIPTION="Puppet Development Kit"
 HOMEPAGE="https://puppetlabs.com/"
-SRC_BASE="http://apt.puppetlabs.com/pool/bionic/puppet/${PN:0:1}/${PN}/${PN}_${PV}-1bionic"
+SRC_BASE="http://apt.puppetlabs.com/pool/bionic/puppet-tools/${PN:0:1}/${PN}/${PN}_${PV}-1bionic"
 SRC_URI="
 	amd64? ( ${SRC_BASE}_amd64.deb )
 "
