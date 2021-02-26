@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
-IUSE="debug fuse kerberos jpeg -neutrinordp pam +pulseaudio systemd +vsock -xrdpvr"
+IUSE="debug fuse kerberos jpeg -neutrinordp pam +pulseaudio systemd +vsock +xorg -xrdpvr"
 
 RDEPEND="dev-libs/openssl:0=
 	pulseaudio? ( media-sound/pulseaudio:0= )
@@ -27,6 +27,7 @@ RDEPEND="dev-libs/openssl:0=
 	pam? ( sys-libs/pam:0= )
 	neutrinordp? ( net-misc/freerdp:0= )
 	xrdpvr? ( virtual/ffmpeg:0= )"
+PDEPEND="xorg? ( net-misc/xorgxrdp )"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
 	dev-lang/nasm"
