@@ -70,24 +70,23 @@ src_configure() {
 		--localstatedir="${EPREFIX}"/var
 
 		# -- authentication backends --
-		# kerberos is inside !SESMAN_NOPAM conditional for no reason
-		$(use pam || use kerberos && echo --disable-pam)
-		$(usex kerberos --enable-kerberos '')
+		$(use_enable pam)
+		$(use_enable kerberos)
 		# pam_userpass is not in Gentoo at the moment
 		#--disable-pamuserpass
 
 		# -- jpeg support --
-		$(usex jpeg --enable-jpeg '')
+		$(use_enable jpeg)
 		# the package supports explicit linking against libjpeg-turbo
 		# (no need for -ljpeg compat)
 		$(use jpeg && has_version 'media-libs/libjpeg-turbo:0' && echo --enable-tjpeg)
 
 		# -- others --
-		$(usex debug --enable-xrdpdebug '')
-		$(usex fuse --enable-fuse '')
-		# $(usex neutrinordp --enable-neutrinordp '')
-		$(usex vsock --enable-vsock '')
-		# $(usex xrdpvr --enable-xrdpvr '')
+		$(use_enable debug xrdpdebug)
+		$(use_enable fuse)
+		$(use_enable neutrinordp)
+		$(use_enable vsock)
+		$(use_enable xrdpvr)
 
 		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)"
 	)
