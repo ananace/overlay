@@ -9,9 +9,9 @@ Pull Requests are also welcome.
 Using
 -----
 
-This overlay is on layman, so adding it is as simple as;
+This overlay is on the repository list as `ace`, so adding it is as simple as;
 ```
-# layman -a ace
+# eselect repository enable ace
 ```
 
 If you're not using layman, you can also use this overlay by adding a file to `/etc/portage/repos.conf/` containing something like;
