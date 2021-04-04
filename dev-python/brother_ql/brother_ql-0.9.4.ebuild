@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/pklaus/${PN} https://pypi.org/project/brother-ql"
 SRC_URI="https://github.com/pklaus/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-LICENSE="GPL-3.0"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="*"
 RESTRICT="mirror"
