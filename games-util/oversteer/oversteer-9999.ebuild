@@ -20,8 +20,12 @@ LICENSE="GPL-3.0"
 RESTRICT="mirror"
 SLOT="0"
 
-DEPEND="dev-python/python-evdev
+DEPEND="
+	dev-python/matplotlib
+	dev-python/python-evdev
 	dev-python/pyudev
+	dev-python/scipy
+	dev-python/xdg
 	virtual/libudev"
 
 RDEPEND="${DEPEND}"
