@@ -1,1 +1,0 @@
-choria-bin-0.20.2.ebuild
