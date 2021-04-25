@@ -29,6 +29,12 @@ src_unpack() {
 	unpack_deb "${A}"
 }
 
+src_prepare() {
+	eapply_user
+
+	sed -e 's/syslog/journal/' -i 'lib/systemd/system/choria-server.service' 'lib/systemd/system/choria-broker.service'
+}
+
 src_install() {
 	insinto /
 	doins -r *
