@@ -5,20 +5,27 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8,9} )
 
-inherit meson distutils-r1 multilib-minimal flag-o-matic git-r3
+inherit meson distutils-r1 multilib-minimal flag-o-matic
 
 DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more."
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
-EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
-if ! [[ ${PV} == "9999" ]]; then
-	EGIT_COMMIT="v${PV}"
+if [[ ${PV} == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
+	SRC_URI=""
+else
+	SRC_URI="https://github.com/flightlessmango/MangoHud/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
 
 LICENSE="MIT"
 SLOT="0"
 IUSE="+dbus glvnd +X xnvctrl wayland video_cards_nvidia"
+REQUIRED_USE="
+	^^ ( X wayland )
+	xnvctrl? ( video_cards_nvidia )
+"
 
 BDEPEND="dev-python/mako[${PYTHON_USEDEP}]"
 DEPEND="
@@ -26,7 +33,7 @@ DEPEND="
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	glvnd? (
-		media-libs/libglvnd[$MULTILIB_USEDEP]
+		media-libs/libglvnd[${MULTILIB_USEDEP}]
 	)
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
@@ -44,11 +51,11 @@ multilib_src_configure() {
 		-Dappend_libdir_mangohud=false
 		-Duse_system_vulkan=enabled
 		-Dinclude_doc=false
-		-Dwith_nvml=$(usex video_cards_nvidia enabled disabled)
-		-Dwith_xnvctrl=$(usex xnvctrl enabled disabled)
-		-Dwith_X11=$(usex X enabled disabled)
-		-Dwith_wayland=$(usex wayland enabled disabled)
-		-Dwith_dbus=$(usex dbus enabled disabled)
+		$(meson_feature video_cards_nvidia with_nvml)
+		$(meson_feature xnvctrl with_xnvctrl)
+		$(meson_feature X with_x11)
+		$(meson_feature wayland with_wayland)
+		$(meson_feature dbus with_dbus)
 
 	)
 	meson_src_configure
