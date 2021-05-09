@@ -46,9 +46,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	if [[ -n "${A}" ]]; then
+	if ! [[ "${PV}" == "9999" ]]; then
 		unpack ${A}
 		mv MangoHud-${PV} mangohud-${PV}
+	else
+		git-r3_src_unpack
 	fi
 }
 
