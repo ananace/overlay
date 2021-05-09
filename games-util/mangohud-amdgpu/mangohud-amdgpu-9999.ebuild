@@ -20,6 +20,10 @@ EGIT_BRANCH="amdgpu"
 LICENSE="MIT"
 SLOT="0"
 IUSE="+dbus glvnd +X xnvctrl wayland -video_cards_nvidia +video_cards_amdgpu"
+REQUIRED_USE="
+	^^ ( X wayland )
+	xnvctrl? ( video_cards_nvidia )
+"
 
 BDEPEND="dev-python/mako[${PYTHON_USEDEP}]"
 DEPEND="
@@ -31,7 +35,7 @@ DEPEND="
 		x11-libs/libdrm[video_cards_amdgpu]
 	)
 	glvnd? (
-		media-libs/libglvnd[$MULTILIB_USEDEP]
+		media-libs/libglvnd[${MULTILIB_USEDEP}]
 	)
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
