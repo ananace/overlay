@@ -25,7 +25,7 @@ DEPEND="
 	dev-python/python-evdev
 	dev-python/pyudev
 	dev-python/scipy
-	dev-python/xdg
+	dev-python/pyxdg
 	virtual/libudev"
 
 RDEPEND="${DEPEND}"
