@@ -7,16 +7,20 @@ PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 inherit meson distutils-r1 multilib-minimal flag-o-matic
 
-DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more."
+DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more. AMDGPU testing branch"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
+SRC_URI="
+	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
+	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
+"
 if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
-	SRC_URI=""
 else
-	SRC_URI="https://github.com/flightlessmango/MangoHud/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="$SRC_URI https://github.com/flightlessmango/MangoHud/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
+	S="${WORKDIR}/MangoHud-${PV}"
 fi
 
 LICENSE="MIT"
@@ -28,6 +32,7 @@ REQUIRED_USE="
 
 BDEPEND="dev-python/mako[${PYTHON_USEDEP}]"
 DEPEND="
+	!games-util/mangohud
 	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
@@ -46,14 +51,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	if ! [[ "${PV}" == "9999" ]]; then
-		unpack ${A}
-		mv MangoHud-${PV} mangohud-${PV}
-	else
-		git-r3_src_unpack
-	fi
-}
+	[[ ${PV} == "9999" ]] && git-r3_src_unpack
+	default
 
+	mv imgui-1.81 "${S}/subprojects"
+}
 multilib_src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
@@ -64,7 +66,6 @@ multilib_src_configure() {
 		$(meson_feature X with_x11)
 		$(meson_feature wayland with_wayland)
 		$(meson_feature dbus with_dbus)
-
 	)
 	meson_src_configure
 }
