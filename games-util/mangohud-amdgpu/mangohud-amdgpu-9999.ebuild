@@ -21,13 +21,12 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="+dbus glvnd +X xnvctrl wayland -video_cards_nvidia +video_cards_amdgpu"
 REQUIRED_USE="
-	^^ ( X wayland )
 	xnvctrl? ( video_cards_nvidia )
 "
 
 BDEPEND="dev-python/mako[${PYTHON_USEDEP}]"
 DEPEND="
-    !games-util/mangohud
+	!games-util/mangohud
 	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
