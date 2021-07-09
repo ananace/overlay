@@ -15,7 +15,7 @@ SRC_URI="
     https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
 "
 EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
-EGIT_BRANCH="amdgpu"
+EGIT_BRANCH="libdrm_amdgpu"
 
 LICENSE="MIT"
 SLOT="0"
