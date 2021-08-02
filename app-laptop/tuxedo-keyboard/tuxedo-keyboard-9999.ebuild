@@ -3,7 +3,6 @@
 
 EAPI=6
 
-# MODULES_OPTIONAL_USE="module"
 inherit linux-mod bash-completion-r1
 
 DESCRIPTION="TUXEDO Computers Kernel module for keyboard backlighting"
@@ -14,42 +13,23 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/tuxedocomputers/${PN}"
 	KEYWORDS=""
 else
-	# SRC_URI="https://github.com/tuxedocomputers/${PN}/releases/download/v${PV}/${P}.tar.gz"
-	# KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
-	echo "No stable release yet."
-	exit 1
+	SRC_URI="https://github.com/tuxedocomputers/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
-IUSE="" # dkms
+IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-
-MODULE_NAMES="tuxedo_keyboard(kernel/drivers/misc:.:src)"
-BUILD_TARGETS="clean all"
-CONFIG_CHECK=""
+BUILD_TARGETS="all"
+MODULE_NAMES="clevo_acpi(tuxedo:${S}:src) clevo_wmi(tuxedo:${S}:src) tuxedo_keyboard(tuxedo:${S}:src) tuxedo_io(tuxedo:${S}:src/tuxedo_io)"
 
 pkg_setup() {
 	linux-mod_pkg_setup
-	kernel_is -lt 3 10 0 && die "This version of ${PN} requires Linux >= 3.10"
+	BUILD_PARAMS="CC=$(tc-getBUILD_CC) KDIR=${KV_DIR} V=1 KBUILD_VERBOSE=1"
 }
 
-src_prepare() {
-       eapply_user
-       sed -i 's!KDIR := /lib/modules/$(shell uname -r)/build!KDIR := /lib/modules/'"${KV_FULL}"'/build!g' Makefile
-}
-
-src_compile() {
-	# BUILD_PARAMS="KERNELDIR=${KERNEL_DIR}"
-	linux-mod_src_compile
-}
-
-src_install() {
-	linux-mod_src_install
-}
-
-pkg_postinst() {
-	linux-mod_pkg_postinst
-}
+#src_prepare() {
+#       eapply_user
+#       #sed -i 's!KDIR := /lib/modules/$(shell uname -r)/build!KDIR := /lib/modules/'"${KV_FULL}"'/build!g' Makefile
+#}
