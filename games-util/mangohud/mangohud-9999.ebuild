@@ -5,27 +5,31 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8,9} )
 
-inherit meson distutils-r1 multilib-minimal flag-o-matic
+inherit meson distutils-r1 multilib-minimal flag-o-matic git-r3
 
 DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more. AMDGPU testing branch"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
-SRC_URI="
-	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
-	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
-"
+EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
 if [[ ${PV} == "9999" ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
+	SRC_URI="
+    	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
+    	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
+    	https://github.com/gabime/spdlog/archive/v1.8.5.tar.gz -> spdlog-1.8.5.tar.gz
+    	https://wrapdb.mesonbuild.com/v2/spdlog_1.8.5-1/get_patch -> spdlog-1.8.5-1-wrap.zip
+	"
 else
-	SRC_URI="$SRC_URI https://github.com/flightlessmango/MangoHud/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+    	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
+    	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
+	"
+	EGIT_COMMIT="v${PV}"
 	KEYWORDS="-* ~amd64 ~x86"
-	S="${WORKDIR}/MangoHud-${PV}"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+dbus glvnd +X xnvctrl wayland video_cards_nvidia"
+IUSE="+dbus glvnd +X xnvctrl wayland -video_cards_nvidia +video_cards_amdgpu"
 REQUIRED_USE="
 	xnvctrl? ( video_cards_nvidia )
 "
@@ -36,6 +40,9 @@ DEPEND="
 	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
+	video_cards_amdgpu? (
+		x11-libs/libdrm[video_cards_amdgpu]
+	)
 	glvnd? (
 		media-libs/libglvnd[${MULTILIB_USEDEP}]
 	)
@@ -51,10 +58,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	[[ ${PV} == "9999" ]] && git-r3_src_unpack
+	git-r3_src_unpack
 	default
 
-	mv imgui-1.81 "${S}/subprojects"
+	mv imgui-1.81 ${S}/subprojects
+	if [[ ${PV} == "9999" ]]; then
+		mv spdlog-1.8.5 ${S}/subprojects
+	fi
 }
 multilib_src_configure() {
 	local emesonargs=(
@@ -67,6 +77,7 @@ multilib_src_configure() {
 		$(meson_feature wayland with_wayland)
 		$(meson_feature dbus with_dbus)
 	)
+	[[ ${PV} == "9999" ]] && emesonargs+=( $(meson_feature video_cards_amdgpu with_libdrm_amdgpu) )
 	meson_src_configure
 }
 
