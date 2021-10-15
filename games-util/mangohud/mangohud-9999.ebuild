@@ -34,7 +34,10 @@ REQUIRED_USE="
 	xnvctrl? ( video_cards_nvidia )
 "
 
-BDEPEND="dev-python/mako[${PYTHON_USEDEP}]"
+BDEPEND="
+	dev-python/mako[${PYTHON_USEDEP}]
+	dev-util/ninja
+"
 DEPEND="
 	!games-util/mangohud
 	dev-util/glslang
