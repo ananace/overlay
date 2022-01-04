@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="A simple mod manager for FreeSpace 2 Open"
 HOMEPAGE="https://github.com/ngld/knossos"
-SRC_URI="https://github.com/ngld/${PN}/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/ngld/old-${PN}/archive/v${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64 ~x86"
@@ -27,9 +27,9 @@ DEPEND="$RDEPEND
 	dev-util/ninja
 	sys-apps/yarn"
 
-RESTRICT="mirror"
+RESTRICT="mirror network-sandbox"
 
-# S="${WORKDIR}"
+S="${WORKDIR}/old-${P}"
 
 src_prepare() {
 	yarn add es6-shim
