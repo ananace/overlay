@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-PYTHON_COMPAT=( python3_{6..8} )
+PYTHON_COMPAT=( python3_{6..9} )
 
 inherit distutils-r1
 
@@ -18,4 +18,12 @@ RESTRICT="mirror"
 
 DOCS="README.rst"
 
-BDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+BDEPEND="
+	dev-python/pip[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
+"
+
+src_prepare() {
+	default
+	sed -e "s/\['pytest-runner'\]/[]/" -i setup.py
+}
