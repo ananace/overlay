@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils
+inherit eutils xdg-utils
 
 DESCRIPTION="A simple mod manager for FreeSpace 2 Open"
 HOMEPAGE="https://github.com/ngld/knossos"
@@ -51,4 +51,11 @@ src_install() {
 
 	insinto /usr/share/applications
 	doins "${FILESDIR}/${PN}.desktop"
+
+	insinto /usr/share/icons/hicolor/256x256/apps
+	newins knossos/data/hlp.png knossos.png
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
 }
