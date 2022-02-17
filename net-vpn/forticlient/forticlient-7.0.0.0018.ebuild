@@ -7,7 +7,7 @@ inherit desktop multilib-build pax-utils systemd unpacker xdg
 
 DESCRIPTION="Fortinet VPN client"
 HOMEPAGE="https://www.forticlient.com"
-SRC_URI="https://repo.fortinet.com/repo/7.0/ubuntu/pool/multiverse/${PN}/${PN}_${PV}_amd64.deb"
+SRC_URI="https://filestore.fortinet.com/${PN}/downloads/${PN}_vpn_${PV}_amd64.deb"
 
 LICENSE="Fortinet"
 SLOT="0"
@@ -62,15 +62,7 @@ QA_PREBUILT="
 	opt/forticlient/fctsched
 	opt/forticlient/update_tls
 	opt/forticlient/update
-	opt/forticlient/tpm2/tpm2_ptool/exe.linux-x86_64-3.7/tpm2_ptool
-	opt/forticlient/scanunit
-	opt/forticlient/libav.so
-	opt/forticlient/fmon
-	opt/forticlient/fctlogupload
-	opt/forticlient/fchelper
-	opt/forticlient/epctrl
 	opt/forticlient/vpn
-	opt/forticlient/vulscan
 "
 QA_FLAGS_IGNORED="
 	opt/forticlient/gui/FortiClient-linux-x64/swiftshader/libEGL.so
@@ -100,17 +92,15 @@ src_install() {
 	doins -r opt/forticlient/*
 
 	fperms +x \
-		/opt/forticlient/{confighandler,epctrl,fchelper,fctlogupload,fctsched,fmon,fortitray,fortitraylauncher,fortivpn,scanunit,update,update_tls,vpn,vulscan,ztproxy} \
-		/opt/forticlient/*.sh \
-		/opt/forticlient/tpm2/bin/* \
-		/opt/forticlient/tpm2/tpm2_ptool/exe.linux-x86_64-3.7/tpm2_ptool \
+		/opt/forticlient/{confighandler,fctsched,fortitray,fortitraylauncher,fortivpn,update,update_tls,vpn} \
+		/opt/forticlient/stop-scheduler.sh \
 		/opt/forticlient/gui/FortiClient-linux-x64/FortiClient
 
 	dodir /opt/bin
 	dosym ../forticlient/gui/FortiClient-linux-x64/FortiClient opt/bin/FortiClient
 	dosym ../forticlient/fortivpn opt/bin/fortivpn
 
-	systemd_dounit lib/systemd/system/forticlient.service
+	systemd_dounit lib/systemd/system/forticlient-scheduler.service
 
 	pax-mark -m "${ED}"/opt/forticlient/gui/FortiClient-linux-x64/FortiClient
 }
