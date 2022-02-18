@@ -26,7 +26,7 @@ RDEPEND="dev-libs/openssl:0=
 	kerberos? ( virtual/krb5:0= )
 	pam? ( sys-libs/pam:0= )
 	neutrinordp? ( net-misc/freerdp:0= )
-	xrdpvr? ( virtual/ffmpeg:0= )"
+	xrdpvr? ( media-video/ffmpeg:0= )"
 PDEPEND="xorg? ( net-misc/xorgxrdp )"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
