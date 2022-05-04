@@ -87,7 +87,6 @@ multilib_src_configure() {
 		$(meson_feature wayland with_wayland)
 		$(meson_feature dbus with_dbus)
 	)
-	[[ ${PV} == "9999" ]] && emesonargs+=( $(meson_feature video_cards_amdgpu with_libdrm_amdgpu) )
 	meson_src_configure
 }
 
