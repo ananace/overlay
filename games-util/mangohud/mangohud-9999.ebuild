@@ -15,13 +15,21 @@ if [[ ${PV} == "9999" ]]; then
 	SRC_URI="
     	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
     	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
+    	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
     	https://github.com/gabime/spdlog/archive/v1.8.5.tar.gz -> spdlog-1.8.5.tar.gz
     	https://wrapdb.mesonbuild.com/v2/spdlog_1.8.5-1/get_patch -> spdlog-1.8.5-1-wrap.zip
+    	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
+    	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
 	"
 else
 	SRC_URI="
     	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
     	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
+    	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
+    	https://github.com/gabime/spdlog/archive/v1.8.5.tar.gz -> spdlog-1.8.5.tar.gz
+    	https://wrapdb.mesonbuild.com/v2/spdlog_1.8.5-1/get_patch -> spdlog-1.8.5-1-wrap.zip
+    	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
+    	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
 	"
 	EGIT_COMMIT="v${PV}"
 	KEYWORDS="-* ~amd64 ~x86"
@@ -65,9 +73,8 @@ src_unpack() {
 	default
 
 	mv imgui-1.81 ${S}/subprojects
-	if [[ ${PV} == "9999" ]]; then
-		mv spdlog-1.8.5 ${S}/subprojects
-	fi
+	mv spdlog-1.8.5 ${S}/subprojects
+	mv Vulkan-Headers-1.2.158 ${S}/subprojects
 }
 multilib_src_configure() {
 	local emesonargs=(
