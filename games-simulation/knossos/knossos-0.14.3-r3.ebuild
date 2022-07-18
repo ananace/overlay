@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI="7"
 
 inherit eutils xdg-utils
 
@@ -32,6 +32,7 @@ RESTRICT="mirror network-sandbox"
 S="${WORKDIR}/old-${P}"
 
 src_prepare() {
+	default
 	yarn add es6-shim
 	yarn install
 }

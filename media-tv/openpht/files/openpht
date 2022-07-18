@@ -1,7 +1,0 @@
-#!/bin/sh
-
-export LD_LIBRARY_PATH="/opt/openpht/bin/system/players/dvdplayer:$LD_LIBRARY_PATH"
-export XBMC_BIN_HOME="/opt/openpht/bin"
-export XBMC_HOME="/opt/openpht/share/XBMC"
-
-exec "/opt/openpht/bin/plexhometheater" "$@"
