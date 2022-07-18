@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 inherit eutils unpacker
 
 DESCRIPTION="Puppet Development Kit"
@@ -26,6 +26,7 @@ QA_PREBUILT="
 	/opt/puppetlabs/pdk/bin/*"
 
 src_prepare() {
+	default
 	rm opt/puppetlabs/pdk/private/ruby/*/lib/ruby/gems/*/gems/ffi-*/ext/ffi_c/libffi-x86_64-linux/a.out
 	rm opt/puppetlabs/pdk/share/cache/ruby/*/gems/ffi-*/ext/ffi_c/libffi-x86_64-linux/a.out
 
