@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{6,7,8,9,10} )
 
 inherit meson distutils-r1 multilib-minimal flag-o-matic git-r3
 
@@ -99,7 +99,7 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	dodoc "${S}/bin/MangoHud.conf"
+	dodoc "${S}/data/MangoHud.conf"
 
 	einstalldocs
 }
