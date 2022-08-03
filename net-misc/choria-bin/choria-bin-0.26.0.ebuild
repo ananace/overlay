@@ -11,7 +11,7 @@ MY_PN="${PN%-bin}"
 DESCRIPTION="The Choria Orchestrator Server and Broker"
 HOMEPAGE="https://choria.io"
 SRC_URI="
-	amd64? ( https://packagecloud.io/${MY_PN}/release/packages/ubuntu/bionic/${MY_PN}_${PV}_amd64.deb/download.deb -> ${MY_PN}_${PV}_amd64.deb )"
+	amd64? ( https://apt.eu.choria.io/release/debian/bullseye/pool/bullseye/c/choria/${MY_PN}_${PV}+bullseye_amd64.deb )"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
