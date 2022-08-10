@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Head tracking software for MS Windows, Linux, and Apple OSX"
 HOMEPAGE="https://github.com/opentrack/opentrack"
@@ -16,6 +16,8 @@ else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
 	RESTRICT="mirror"
+
+	S="${WORKDIR}/${PN}-${P}"
 fi
 
 LICENSE="MIT"
@@ -35,11 +37,17 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}-${P}"
+src_prepare() {
+	default
+
+	sed -e "s|share/doc/opentrack|share/doc/${P}|" -i cmake/opentrack-hier.cmake
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
 		-DSDK_WINE=$(usex wine)
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
