@@ -38,7 +38,10 @@ src_prepare() {
 }
 
 src_configure() {
+	export PATH="$PATH:$(qtpaths5 --binaries-dir)"
+
 	python configure.py
+	test -f build.ninja || die 'Failed to configure'
 }
 
 src_compile() {
