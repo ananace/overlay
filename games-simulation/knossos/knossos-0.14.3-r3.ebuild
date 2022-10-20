@@ -25,6 +25,7 @@ RDEPEND="
 
 DEPEND="$RDEPEND
 	dev-util/ninja
+	dev-qt/linguist-tools
 	sys-apps/yarn"
 
 RESTRICT="mirror network-sandbox"
