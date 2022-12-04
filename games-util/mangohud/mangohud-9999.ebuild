@@ -75,6 +75,9 @@ src_unpack() {
 	mv imgui-1.81 ${S}/subprojects
 	mv spdlog-1.8.5 ${S}/subprojects
 	mv Vulkan-Headers-1.2.158 ${S}/subprojects
+
+	mkdir ${S}/subprojects/nlohmann_json-3.10.5
+	mv {single_,}include LICENSE.MIT meson.build ${S}/subprojects/nlohmann_json-3.10.5
 }
 multilib_src_configure() {
 	local emesonargs=(
