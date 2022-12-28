@@ -1,9 +1,10 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
+CONFIG_CHECK="ACPI_WMI INPUT_SPARSEKMAP"
 
-inherit linux-mod bash-completion-r1
+inherit linux-mod toolchain-funcs
 
 DESCRIPTION="TUXEDO Computers Kernel module for keyboard backlighting"
 HOMEPAGE="https://github.com/tuxedocomputers/tuxedo-keyboard"
@@ -28,8 +29,3 @@ pkg_setup() {
 	linux-mod_pkg_setup
 	BUILD_PARAMS="CC=$(tc-getBUILD_CC) KDIR=${KV_DIR} V=1 KBUILD_VERBOSE=1"
 }
-
-#src_prepare() {
-#       eapply_user
-#       #sed -i 's!KDIR := /lib/modules/$(shell uname -r)/build!KDIR := /lib/modules/'"${KV_FULL}"'/build!g' Makefile
-#}
