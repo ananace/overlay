@@ -1,9 +1,9 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit linux-mod bash-completion-r1
+inherit linux-mod toolchain-funcs
 
 DESCRIPTION="Experimental Logitech force feedback module"
 HOMEPAGE="https://github.com/berarma/new-lg4ff"
@@ -29,23 +29,7 @@ MODULE_NAMES="hid-logitech-new(kernel/drivers/hid:.:.)"
 BUILD_TARGETS="default"
 CONFIG_CHECK=""
 
-pkg_setup() {
-	linux-mod_pkg_setup
-}
-
 src_prepare() {
        eapply_user
        sed -i 's!KDIR := .*!KDIR := /lib/modules/'"${KV_FULL}"'/build!g' Makefile
-}
-
-src_compile() {
-	linux-mod_src_compile
-}
-
-src_install() {
-	linux-mod_src_install
-}
-
-pkg_postinst() {
-	linux-mod_pkg_postinst
 }
