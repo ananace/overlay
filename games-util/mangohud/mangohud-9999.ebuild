@@ -48,6 +48,7 @@ BDEPEND="
 "
 DEPEND="
 	!games-util/mangohud
+	media-libs/glfw
 	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
