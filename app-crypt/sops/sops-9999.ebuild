@@ -9,8 +9,12 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/mozilla/${PN}.git"
 	KEYWORDS=""
+	RESTRICT="network-sandbox"
 else
-	SRC_URI="https://github.com/mozilla/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/mozilla/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		https://ace-things.rgw.ctrl-c.liu.se/${P}-vendor.tar.xz
+	"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 	RESTRICT="mirror"
 fi
