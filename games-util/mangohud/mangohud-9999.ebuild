@@ -50,7 +50,6 @@ DEPEND="
 	!games-util/mangohud
 	media-libs/glfw
 	dev-util/glslang
-	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	video_cards_amdgpu? (
 		x11-libs/libdrm[video_cards_amdgpu]
@@ -83,7 +82,6 @@ src_unpack() {
 multilib_src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
-		-Duse_system_vulkan=enabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
