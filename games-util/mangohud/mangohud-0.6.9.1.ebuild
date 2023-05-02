@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8,9,10} )
+PYTHON_COMPAT=( python3_{6..12} )
 MY_PV="0.6.9-1"
 
 inherit meson distutils-r1 multilib-minimal flag-o-matic git-r3
