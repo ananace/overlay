@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..12} )
+PYTHON_COMPAT=( python3_{7..11} )
 PYTHON_REQ_USE="sqlite"
 DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit distutils-r1
@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 # https://github.com/conan-io/conan/blob/develop/conans/requirements.txt
 # https://github.com/conan-io/conan/blob/develop/conans/requirements_server.txt
 RDEPEND="
-	>=dev-python/bottle-0.12.8[${PYTHON_USEDEP}]
+	>=dev-python/bottle-..11.8[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.3.3[${PYTHON_USEDEP}]
 	>=dev-python/deprecation-2.0[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.0.2[${PYTHON_USEDEP}]
