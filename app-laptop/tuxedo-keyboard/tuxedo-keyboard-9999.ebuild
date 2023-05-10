@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 CONFIG_CHECK="ACPI_WMI INPUT_SPARSEKMAP"
 
 inherit linux-mod toolchain-funcs
@@ -23,7 +23,7 @@ SLOT="0"
 IUSE=""
 
 BUILD_TARGETS="all"
-MODULE_NAMES="clevo_acpi(tuxedo:${S}:src) clevo_wmi(tuxedo:${S}:src) tuxedo_keyboard(tuxedo:${S}:src) tuxedo_io(tuxedo:${S}:src/tuxedo_io)"
+MODULE_NAMES="clevo_acpi(tuxedo:${S}:src) clevo_wmi(tuxedo:${S}:src) uniwill_wmi(tuxedo:${S}:src) tuxedo_keyboard(tuxedo:${S}:src) tuxedo_io(tuxedo:${S}:src/tuxedo_io)"
 
 pkg_setup() {
 	linux-mod_pkg_setup
