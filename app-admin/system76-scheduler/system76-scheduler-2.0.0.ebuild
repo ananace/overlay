@@ -235,9 +235,12 @@ BDEPEND="
 "
 SLOT="0"
 
-CONFIG_CHECK="
-        ~SCHED_DEBUG
-"
+pkg_pretend() {
+        local CONFIG_CHECK="~SCHED_DEBUG"
+
+        check_extra_config
+}
+
 src_compile() {
         export EXECSNOOP_PATH=$(which execsnoop)
         cargo_src_compile
