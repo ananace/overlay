@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit autotools eutils pam systemd
+inherit autotools pam systemd
 
 DESCRIPTION="An open source Remote Desktop Protocol server"
 HOMEPAGE="http://www.xrdp.org/"
@@ -12,9 +12,9 @@ SRC_URI="https://github.com/neutrinolabs/xrdp/releases/download/v${PV}/${P}.tar.
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 RESTRICT="mirror"
-IUSE="debug fuse kerberos jpeg -neutrinordp pam +pulseaudio systemd +vsock +xorg -xrdpvr"
+IUSE="debug fuse +ipv6 kerberos jpeg -neutrinordp pam +pulseaudio systemd +vsock +xorg -xrdpvr"
 
 RDEPEND="dev-libs/openssl:0=
 	pulseaudio? ( media-sound/pulseaudio:0= )
@@ -80,6 +80,7 @@ src_configure() {
 		# -- others --
 		$(use_enable debug debug-all)
 		$(use_enable fuse)
+		$(use_enable ipv6)
 		$(use_enable neutrinordp)
 		$(use_enable vsock)
 		$(use_enable xrdpvr)

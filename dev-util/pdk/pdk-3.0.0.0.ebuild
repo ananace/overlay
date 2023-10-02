@@ -6,7 +6,7 @@ inherit eutils unpacker
 
 DESCRIPTION="Puppet Development Kit"
 HOMEPAGE="https://puppetlabs.com/"
-SRC_BASE="http://apt.puppetlabs.com/pool/bionic/puppet-tools/${PN:0:1}/${PN}/${PN}_${PV}-1bionic"
+SRC_BASE="http://apt.puppetlabs.com/pool/bullseye/puppet-tools/${PN:0:1}/${PN}/${PN}_${PV}-1bullseye"
 SRC_URI="
 	amd64? ( ${SRC_BASE}_amd64.deb )
 "
@@ -16,6 +16,9 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE=""
 RESTRICT="strip mirror"
+
+DEPEND="virtual/libcrypt"
+RDEPEND="${DEPEND}"
 
 S=${WORKDIR}
 
@@ -27,8 +30,6 @@ QA_PREBUILT="
 
 src_prepare() {
 	default
-	rm opt/puppetlabs/pdk/private/ruby/*/lib/ruby/gems/*/gems/ffi-*/ext/ffi_c/libffi-x86_64-linux/a.out
-	rm opt/puppetlabs/pdk/share/cache/ruby/*/gems/ffi-*/ext/ffi_c/libffi-x86_64-linux/a.out
 
 	# Remove broken libs to avoid QA errors
 	rm opt/puppetlabs/pdk/private/ruby/*/lib/ruby/*/x86_64-linux/readline.so
