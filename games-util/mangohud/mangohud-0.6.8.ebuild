@@ -44,7 +44,7 @@ REQUIRED_USE="
 
 BDEPEND="
 	dev-python/mako[${PYTHON_USEDEP}]
-	dev-util/ninja
+	dev-build/ninja
 "
 DEPEND="
 	!games-util/mangohud
