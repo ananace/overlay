@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 RDEPEND=""
 SLOT="0"
 
-RESTRICT="mirror"
+RESTRICT=""
 
 QA_PREBUILT="
 	usr/bin/choria"
