@@ -31,6 +31,7 @@ src_compile() {
 		uniwill_wmi=tuxedo:${S}:src
 		tuxedo_keyboard=tuxedo:${S}:src
 		tuxedo_io=tuxedo:${S}:src/tuxedo_io
+		tuxedo_compatibility_check=tuxedo:${S}:src/tuxedo_compatibility_check
 	)
 	local modargs=( KDIR=${KV_OUT_DIR} )
 
