@@ -5,37 +5,31 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6..11} )
 
-inherit meson distutils-r1 multilib-minimal flag-o-matic git-r3
+inherit meson distutils-r1 multilib-minimal flag-o-matic
 
 DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more. AMDGPU testing branch"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
-EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
 if [[ ${PV} == "9999" ]]; then
-	SRC_URI="
-    	https://github.com/ocornut/imgui/archive/v1.89.9.tar.gz -> imgui-1.89.9.tar.gz
-    	https://wrapdb.mesonbuild.com/v2/imgui_1.89.9-1/get_patch -> imgui_1.89.9-1_patch.zip
-    	https://github.com/epezent/implot/archive/refs/tags/v0.16.zip -> implot-0.16.zip
-    	https://wrapdb.mesonbuild.com/v2/implot_0.16-1/get_patch -> implot_0.16-1_patch.zip
-    	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
-    	https://github.com/gabime/spdlog/archive/refs/tags/v1.12.0.tar.gz -> spdlog-1.12.0.tar.gz
-    	https://wrapdb.mesonbuild.com/v2/spdlog_1.12.0-1/get_patch -> spdlog_1.12.0-1_patch.zip
-    	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
-    	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
-	"
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
 else
-	SRC_URI="
-    	https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
-    	https://wrapdb.mesonbuild.com/v1/projects/imgui/1.81/1/get_zip -> imgui_wrap-1.81.zip
-    	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
-    	https://github.com/gabime/spdlog/archive/v1.8.5.tar.gz -> spdlog-1.8.5.tar.gz
-    	https://wrapdb.mesonbuild.com/v2/spdlog_1.8.5-1/get_patch -> spdlog-1.8.5-1-wrap.zip
-    	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
-    	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
-	"
-	EGIT_COMMIT="v${PV}"
+	S="${WORKDIR}/MangoHud-${PV}"
+	MY_SRC_URI="https://github.com/flightlessmango/MangoHud/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
+SRC_URI="
+	${MY_SRC_URI:-}
+	https://github.com/ocornut/imgui/archive/v1.89.9.tar.gz -> imgui-1.89.9.tar.gz
+	https://wrapdb.mesonbuild.com/v2/imgui_1.89.9-1/get_patch -> imgui_1.89.9-1_patch.zip
+	https://github.com/epezent/implot/archive/refs/tags/v0.16.zip -> implot-0.16.zip
+	https://wrapdb.mesonbuild.com/v2/implot_0.16-1/get_patch -> implot_0.16-1_patch.zip
+	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
+	https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz -> spdlog-1.13.0.tar.gz
+	https://wrapdb.mesonbuild.com/v2/spdlog_1.13.0-1/get_patch -> spdlog_1.13.0-1_patch.zip
+	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
+	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
+"
 
 LICENSE="MIT"
 SLOT="0"
@@ -71,16 +65,18 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	git-r3_src_unpack
+	if [[ ${PV} == "9999" ]]; then
+		git-r3_src_unpack
+	else
+		unpack "${P}.tar.gz"
+		A=("${A[@]/${P}.tar.gz}")
+	fi
+
+	cd "${S}/subprojects" || die
 	default
 
-	mv imgui-1.89.9 ${S}/subprojects
-	mv implot-0.16 ${S}/subprojects
-	mv spdlog-1.12.0 ${S}/subprojects
-	mv Vulkan-Headers-1.2.158 ${S}/subprojects
-
-	mkdir ${S}/subprojects/nlohmann_json-3.10.5
-	mv {single_,}include LICENSE.MIT meson.build ${S}/subprojects/nlohmann_json-3.10.5
+	mkdir nlohmann_json-3.10.5
+	mv {single_,}include LICENSE.MIT meson.build nlohmann_json-3.10.5/
 }
 multilib_src_configure() {
 	local emesonargs=(
