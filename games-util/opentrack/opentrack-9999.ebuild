@@ -41,6 +41,8 @@ src_prepare() {
 	default
 
 	sed -e "s|share/doc/opentrack|share/doc/${P}|" -i cmake/opentrack-hier.cmake
+	sed -e '/REMOVE_RECURSE/d' \
+	    -e 's|"${CMAKE_INSTALL_PREFIX}/|"|' -i cmake/opentrack-i18n.cmake
 
 	cmake_src_prepare
 }
