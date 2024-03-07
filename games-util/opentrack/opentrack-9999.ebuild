@@ -15,7 +15,6 @@ if [[ ${PV} == "9999" ]]; then
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
-	RESTRICT="mirror"
 
 	S="${WORKDIR}/${PN}-${P}"
 fi
@@ -53,4 +52,11 @@ src_configure() {
 		-DSDK_WINE=$(usex wine)
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	docompress -x "/usr/share/doc/${PF}/contrib" \
+	              "/usr/share/doc/${PF}/settings"
 }
