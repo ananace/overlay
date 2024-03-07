@@ -40,6 +40,7 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 
+	sed -e 's|wineg++|${CMAKE_COMMAND} -E env "PATH=/etc/eselect/wine/bin:$ENV{PATH}" -- wineg++|' -i proto-wine/CMakeLists.txt
 	sed -e "s|share/doc/opentrack|share/doc/${P}|" -i cmake/opentrack-hier.cmake
 	sed -e '/REMOVE_RECURSE/d' \
 	    -e 's|"${CMAKE_INSTALL_PREFIX}/|"|' -i cmake/opentrack-i18n.cmake
