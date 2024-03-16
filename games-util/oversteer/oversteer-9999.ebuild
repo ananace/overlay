@@ -17,21 +17,24 @@ DESCRIPTION="Steering Wheel Manager for Linux"
 HOMEPAGE="https://github.com/berarma/oversteer"
 
 LICENSE="GPL-3.0"
-RESTRICT="mirror"
+RESTRICT=""
 SLOT="0"
 
 DEPEND="
 	dev-python/matplotlib
 	dev-python/python-evdev
+	dev-python/pygobject
+	dev-python/python-distutils-extra
 	dev-python/pyudev
 	dev-python/scipy
-	dev-python/pyxdg
-	virtual/libudev"
+	dev-python/pyxdg"
 
 RDEPEND="${DEPEND}"
 
 src_install() {
 	meson_src_install
 
+	udev_dorules data/udev/99-fanatec-wheel-perms.rules
 	udev_dorules data/udev/99-logitech-wheel-perms.rules
+	udev_dorules data/udev/99-thrustmaster-wheel-perms.rules
 }
