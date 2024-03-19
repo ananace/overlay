@@ -12,7 +12,7 @@ SRC_URI="https://github.com/neutrinolabs/${PN}/releases/download/v${PV}/${P}.tar
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 RESTRICT="mirror"
 IUSE="glamor"
 
@@ -38,6 +38,7 @@ src_configure() {
 
 src_install() {
 	default
-	prune_libtool_files --all
+
+	find "${D}" -name '*.la' -delete || die
 }
 
