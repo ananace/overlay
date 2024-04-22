@@ -11,7 +11,12 @@ MY_PN="${PN%-bin}"
 DESCRIPTION="The Choria Orchestrator Server and Broker"
 HOMEPAGE="https://choria.io"
 SRC_URI="
-	amd64? ( https://apt.eu.choria.io/release/debian/bullseye/pool/bullseye/c/choria/${MY_PN}_${PV}_amd64.deb )"
+	amd64? (
+		https://apt.de.choria.io/release/debian/bullseye/pool/bullseye/c/choria/${MY_PN}_${PV}_amd64.deb
+		https://apt.uk.choria.io/release/debian/bullseye/pool/bullseye/c/choria/${MY_PN}_${PV}_amd64.deb
+		https://apt.us.choria.io/release/debian/bullseye/pool/bullseye/c/choria/${MY_PN}_${PV}_amd64.deb
+	)
+"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
