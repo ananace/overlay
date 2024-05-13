@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..11} )
+PYTHON_COMPAT=( python3_{6..12} )
 
 inherit meson distutils-r1 multilib-minimal flag-o-matic
 
@@ -25,8 +25,8 @@ SRC_URI="
 	https://github.com/epezent/implot/archive/refs/tags/v0.16.zip -> implot-0.16.zip
 	https://wrapdb.mesonbuild.com/v2/implot_0.16-1/get_patch -> implot_0.16-1_patch.zip
 	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
-	https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz -> spdlog-1.13.0.tar.gz
-	https://wrapdb.mesonbuild.com/v2/spdlog_1.13.0-1/get_patch -> spdlog_1.13.0-1_patch.zip
+	https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz -> spdlog-1.14.1.tar.gz
+	https://wrapdb.mesonbuild.com/v2/spdlog_1.14.1-1/get_patch -> spdlog_1.14.1-1_patch.zip
 	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
 	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
 "
