@@ -59,7 +59,10 @@ DEPEND="
 		x11-drivers/nvidia-drivers[${MULTILIB_USEDEP}]
 		xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] )
 	)
-	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
+	wayland? (
+		dev-libs/wayland[${MULTILIB_USEDEP}]
+		x11-libs/libxkbcommon[wayland,${MULTILIB_USEDEP}]
+	)
 "
 
 RDEPEND="${DEPEND}"
