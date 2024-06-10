@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit eutils unpacker
+inherit unpacker
 
 MY_PN="${PN%-bin}"
 
