@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI=8
 
-inherit autotools eutils systemd
+inherit autotools systemd
 
 DESCRIPTION="Xorg drivers for xrdp"
 HOMEPAGE="http://www.xrdp.org/"
