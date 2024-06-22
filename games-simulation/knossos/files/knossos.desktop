@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=Knossos
-Icon=knossos
-Exec=knossos %U
-Terminal=false
-MimeType=x-scheme-handler/fso;
