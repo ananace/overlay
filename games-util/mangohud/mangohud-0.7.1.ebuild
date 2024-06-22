@@ -80,6 +80,7 @@ src_unpack() {
 }
 multilib_src_configure() {
 	local emesonargs=(
+		"--force-fallback-for=imgui,implot,nlohmann_json,spdlog,vulkan-headers"
 		-Dappend_libdir_mangohud=false
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
