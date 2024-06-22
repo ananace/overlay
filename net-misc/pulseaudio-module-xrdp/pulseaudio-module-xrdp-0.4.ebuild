@@ -39,6 +39,6 @@ src_configure() {
 
 src_install() {
 	default
-	prune_libtool_files --all
+	find "${ED}" -type f -name '*.la' -delete || die
 }
 
