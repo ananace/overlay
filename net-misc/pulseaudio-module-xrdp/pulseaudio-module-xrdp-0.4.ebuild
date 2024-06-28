@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI=8
 
-inherit autotools eutils systemd
+inherit autotools systemd
 
 DESCRIPTION="xrdp sink / source pulseaudio modules"
 HOMEPAGE="http://www.xrdp.org/"
@@ -39,6 +39,6 @@ src_configure() {
 
 src_install() {
 	default
-	prune_libtool_files --all
+	find "${ED}" -type f -name '*.la' -delete || die
 }
 
