@@ -47,6 +47,7 @@ src_compile() {
 		"tuxedo_nb04_sensors=tuxedo:${S}:src/tuxedo_nb04"
 		"tuxedo_nb04_power_profiles=tuxedo:${S}:src/tuxedo_nb04"
 		"tuxedo_nb04_kbd_backlight=tuxedo:${S}:src/tuxedo_nb04"
+		"stk8321=tuxedo:${S}:src/stk8321"
 	)
 	local modargs=( "KDIR=${KV_OUT_DIR}" )
 
