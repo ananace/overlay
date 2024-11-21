@@ -19,7 +19,7 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-2+"
 SLOT="0"
 
 PATCHES=( )
