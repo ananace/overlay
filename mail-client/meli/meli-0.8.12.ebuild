@@ -294,7 +294,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="
-        >=virtual/rust-1.70.0
         dbus? ( sys-apps/dbus )
         gpg? ( app-crypt/gpgme )
 "
