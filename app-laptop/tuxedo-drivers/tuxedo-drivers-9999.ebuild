@@ -50,6 +50,7 @@ src_compile() {
 		"tuxedo_nb04_power_profiles=tuxedo:${S}:src/tuxedo_nb04"
 		"tuxedo_nb04_kbd_backlight=tuxedo:${S}:src/tuxedo_nb04"
 		"tuxi_acpi=tuxedo:${S}:src/tuxedo_tuxi"
+		"tuxedo_tuxi_fan_control=tuxedo:${S}:src/tuxedo_tuxi"
 		"stk8321=tuxedo:${S}:src/stk8321"
 		"gxtp7380=tuxedo:${S}:src/gxtp7380"
 	)
