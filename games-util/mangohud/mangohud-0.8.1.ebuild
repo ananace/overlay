@@ -1,1 +1,1 @@
-mangohud-0.8.0.ebuild
+mangohud-9999.ebuild

@@ -1,11 +1,11 @@
 # Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{6..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
-inherit meson distutils-r1 multilib-minimal flag-o-matic
+inherit meson-multilib flag-o-matic python-single-r1 toolchain-funcs
 
 DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more. AMDGPU testing branch"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
@@ -33,25 +33,24 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+dbus glvnd +X xnvctrl wayland -video_cards_nvidia +video_cards_amdgpu"
+IUSE="+dbus glvnd +X xnvctrl wayland video_cards_nvidia video_cards_amdgpu"
 REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	|| ( X wayland )
 	xnvctrl? ( video_cards_nvidia )
 "
 
 BDEPEND="
-	dev-python/mako[${PYTHON_USEDEP}]
-	dev-build/ninja
+	app-arch/unzip
+	dev-util/glslang
+	$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 "
 DEPEND="
-	!games-util/mangohud
+	${PYTHON_DEPS}
 	media-libs/glfw
 	dev-util/glslang
-	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	video_cards_amdgpu? (
 		x11-libs/libdrm[video_cards_amdgpu]
-	)
-	glvnd? (
-		media-libs/libglvnd[${MULTILIB_USEDEP}]
 	)
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
@@ -65,7 +64,12 @@ DEPEND="
 	)
 "
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
+	glvnd? (
+		media-libs/libglvnd[${MULTILIB_USEDEP}]
+	)
+"
 
 src_unpack() {
 	if [[ ${PV} == "9999" ]]; then
@@ -82,10 +86,17 @@ src_unpack() {
 	mv {single_,}include LICENSE.MIT meson.build nlohmann_json-3.10.5/
 }
 multilib_src_configure() {
+	# workaround for lld
+	# https://github.com/flightlessmango/MangoHud/issues/1240
+	if tc-ld-is-lld; then
+		append-ldflags -Wl,--undefined-version
+	fi
+
 	local emesonargs=(
 		"--force-fallback-for=imgui,implot,nlohmann_json,vulkan-headers"
 		-Dappend_libdir_mangohud=false
 		-Dinclude_doc=false
+		-Duse_system_spdlog=disabled
 		$(meson_feature video_cards_nvidia with_nvml)
 		$(meson_feature xnvctrl with_xnvctrl)
 		$(meson_feature X with_x11)
