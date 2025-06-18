@@ -14,7 +14,7 @@ This overlay is on the repository list as `ace`, so adding it is as simple as;
 # eselect repository enable ace
 ```
 
-If you're not using layman, you can also use this overlay by adding a file to `/etc/portage/repos.conf/` containing something like;
+If you're not using eselect-repository, you can also use this overlay by adding a file to `/etc/portage/repos.conf/` containing something like;
 ```
 [ace]
 priority = 50
