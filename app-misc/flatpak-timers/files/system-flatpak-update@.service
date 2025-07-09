@@ -1,0 +1,10 @@
+[Unit]
+Description=Update Flatpak non-default system-installation
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak update --assumeyes --noninteractive --installation=%i
+
+[Install]
+WantedBy=default.target
