@@ -6,8 +6,8 @@ inherit systemd unpacker tmpfiles
 
 DESCRIPTION="general puppet client utils along with hiera and facter"
 HOMEPAGE="https://puppetlabs.com/"
-SRC_URI="amd64? ( https://apt.voxpupuli.org/pool/openvox8/o/${PN}/${PN}_${PV}-1%2Bdebian13_amd64.deb )
-arm64? ( https://apt.voxpupuli.org/pool/openvox8/o/${PN}/${PN}_${PV}-1%2Bdebian13_arm64.deb )"
+SRC_URI="amd64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_amd64.deb )
+arm64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_arm64.deb )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -48,11 +48,7 @@ QA_PREBUILT="*"
 
 src_install() {
 	# conf.d
-	doconfd etc/default/puppet
-	doconfd etc/default/pxp-agent
-	# logrotate.d
-	insinto /etc/logrotate.d
-	doins etc/logrotate.d/pxp-agent
+	doconfd etc/default/openvox
 	# puppet itself
 	insinto /etc/puppetlabs
 	doins -r etc/puppetlabs/*
@@ -65,14 +61,12 @@ src_install() {
 	doins -r opt/*
 	fperms 0750 /opt/puppetlabs/puppet/cache
 	# init
-	newinitd "${FILESDIR}/puppet.initd2" puppet
-	systemd_dounit lib/systemd/system/puppet.service
-	systemd_dounit lib/systemd/system/pxp-agent.service
+	newinitd "${FILESDIR}/openvox.initd2" openvox
+	systemd_dounit lib/systemd/system/openvox.service
 	newtmpfiles usr/lib/tmpfiles.d/puppet-agent.conf puppet-agent.conf
 	# symlinks
 	chmod 0755 -R "${D}/opt/puppetlabs/puppet/bin/"
 	dosym ../../opt/puppetlabs/bin/facter /usr/bin/facter
-	dosym ../../opt/puppetlabs/bin/hiera /usr/bin/hiera
 	dosym ../../opt/puppetlabs/bin/puppet /usr/bin/puppet
 
 	# Handling of the path to the crypt library during the ongoing migration
