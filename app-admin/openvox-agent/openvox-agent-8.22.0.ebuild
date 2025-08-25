@@ -5,7 +5,7 @@ EAPI=7
 inherit systemd unpacker tmpfiles
 
 DESCRIPTION="general puppet client utils along with hiera and facter"
-HOMEPAGE="https://puppetlabs.com/"
+HOMEPAGE="https://voxpupuli.org/openvox/"
 SRC_URI="amd64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_amd64.deb )
 arm64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_arm64.deb )"
 
