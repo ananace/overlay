@@ -48,7 +48,7 @@ QA_PREBUILT="*"
 
 src_install() {
 	# conf.d
-	doconfd etc/default/openvox
+	doconfd etc/default/puppet
 	# puppet itself
 	insinto /etc/puppetlabs
 	doins -r etc/puppetlabs/*
@@ -61,8 +61,8 @@ src_install() {
 	doins -r opt/*
 	fperms 0750 /opt/puppetlabs/puppet/cache
 	# init
-	newinitd "${FILESDIR}/openvox.initd2" openvox
-	systemd_dounit lib/systemd/system/openvox.service
+	newinitd "${FILESDIR}/openvox.initd2" puppet
+	systemd_dounit lib/systemd/system/puppet.service
 	newtmpfiles usr/lib/tmpfiles.d/puppet-agent.conf puppet-agent.conf
 	# symlinks
 	chmod 0755 -R "${D}/opt/puppetlabs/puppet/bin/"
