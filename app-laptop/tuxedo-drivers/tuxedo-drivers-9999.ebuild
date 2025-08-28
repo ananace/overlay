@@ -81,10 +81,10 @@ src_compile() {
 
 src_install() {
         insinto /usr/lib/udev/hwdb.d
-        doins *.hwdb
-        udev_dorules *.rules
+        doins usr/lib/udev/hwdb.d/*.hwdb
+        udev_dorules usr/lib/udev/rules.d/*.rules
         insinto /usr/lib/modprobe.d/
-        doins tuxedo_keyboard.conf
+        doins etc/modprobe.d/tuxedo_keyboard.conf
         linux-mod-r1_src_install
 }
 
