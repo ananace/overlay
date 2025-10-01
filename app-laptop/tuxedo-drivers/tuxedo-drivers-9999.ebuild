@@ -84,7 +84,7 @@ src_install() {
         doins usr/lib/udev/hwdb.d/*.hwdb
         udev_dorules usr/lib/udev/rules.d/*.rules
         insinto /usr/lib/modprobe.d/
-        doins etc/modprobe.d/tuxedo_keyboard.conf
+		doins usr/lib/modprobe.d/*.conf
         linux-mod-r1_src_install
 }
 
