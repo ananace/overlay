@@ -54,21 +54,21 @@ src_compile() {
 		"ite_8291_lb=tuxedo:${KV_OUT_DIR}:src/ite_8291_lb"
 		"ite_8297=tuxedo:${KV_OUT_DIR}:src/ite_8297"
 		"ite_829x=tuxedo:${KV_OUT_DIR}:src/ite_829x"
-		"tuxedo_compatibility_check=tuxedo:${KV_OUT_DIR}:src/tuxedo_compatibility_check"
 		"tuxedo_io=tuxedo:${KV_OUT_DIR}:src/tuxedo_io"
-		"tuxedo_nb02_nvidia_power_ctrl=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb02_nvidia_power_ctrl"
+		"tuxedo_compatibility_check=tuxedo:${KV_OUT_DIR}:src/tuxedo_compatibility_check"
 		"tuxedo_nb05_keyboard=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
-		"tuxedo_nb05_kbd_backlight=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
 		"tuxedo_nb05_power_profiles=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
 		"tuxedo_nb05_ec=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
 		"tuxedo_nb05_sensors=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
-		"tuxedo_nb05_fan_control=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
 		"tuxedo_nb04_keyboard=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb04"
 		"tuxedo_nb04_wmi_ab=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb04"
 		"tuxedo_nb04_wmi_bs=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb04"
 		"tuxedo_nb04_sensors=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb04"
 		"tuxedo_nb04_power_profiles=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb04"
 		"tuxedo_nb04_kbd_backlight=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb04"
+		"tuxedo_nb05_kbd_backlight=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
+		"tuxedo_nb02_nvidia_power_ctrl=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb02_nvidia_power_ctrl"
+		"tuxedo_nb05_fan_control=tuxedo:${KV_OUT_DIR}:src/tuxedo_nb05"
 		"tuxi_acpi=tuxedo:${KV_OUT_DIR}:src/tuxedo_tuxi"
 		"tuxedo_tuxi_fan_control=tuxedo:${KV_OUT_DIR}:src/tuxedo_tuxi"
 		"stk8321=tuxedo:${KV_OUT_DIR}:src/stk8321"
@@ -81,10 +81,10 @@ src_compile() {
 
 src_install() {
         insinto /usr/lib/udev/hwdb.d
-        doins usr/lib/udev/hwdb.d/*.hwdb
-        udev_dorules usr/lib/udev/rules.d/*.rules
+        doins files/usr/lib/udev/hwdb.d/*.hwdb
+        udev_dorules files/usr/lib/udev/rules.d/*.rules
         insinto /usr/lib/modprobe.d/
-		doins usr/lib/modprobe.d/*.conf
+		doins files/usr/lib/modprobe.d/*.conf
         linux-mod-r1_src_install
 }
 
