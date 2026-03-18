@@ -1,17 +1,19 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 inherit systemd unpacker tmpfiles
 
-DESCRIPTION="general puppet client utils along with hiera and facter"
+DESCRIPTION="A community implementation of Puppet, an automated administrative engine for your Linux, Unix, and Windows systems"
 HOMEPAGE="https://voxpupuli.org/openvox/"
-SRC_URI="amd64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_amd64.deb )
-arm64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_arm64.deb )"
+SRC_URI="
+	amd64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_amd64.deb )
+	arm64? ( https://artifacts.voxpupuli.org/${PN}/${PV}/${PN}_${PV}-1%2Bdebian13_arm64.deb )
+"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="puppetdb selinux"
 RESTRICT="strip"
 
