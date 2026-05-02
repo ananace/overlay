@@ -20,15 +20,15 @@ else
 fi
 SRC_URI="
 	${MY_SRC_URI:-}
-	https://github.com/ocornut/imgui/archive/v1.89.9.tar.gz -> imgui-1.89.9.tar.gz
-	https://wrapdb.mesonbuild.com/v2/imgui_1.89.9-1/get_patch -> imgui_1.89.9-1_patch.zip
+	https://github.com/ocornut/imgui/archive/v1.91.6.tar.gz -> imgui-1.91.6.tar.gz
+	https://wrapdb.mesonbuild.com/v2/imgui_1.91.6-1/get_patch -> imgui_1.91.6-1_patch.zip
 	https://github.com/epezent/implot/archive/refs/tags/v0.16.zip -> implot-0.16.zip
 	https://wrapdb.mesonbuild.com/v2/implot_0.16-1/get_patch -> implot_0.16-1_patch.zip
 	https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip -> nlohmann_json-3.10.5.zip
 	https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz -> spdlog-1.14.1.tar.gz
 	https://wrapdb.mesonbuild.com/v2/spdlog_1.14.1-1/get_patch -> spdlog_1.14.1-1_patch.zip
-	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.158.tar.gz -> vulkan-headers-1.2.158.tar.gz
-	https://wrapdb.mesonbuild.com/v2/vulkan-headers_1.2.158-2/get_patch -> vulkan-headers-1.2.158-2-wrap.zip
+	https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.4.346.tar.gz -> vulkan-headers-1.4.346.tar.gz
+	https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/v1.4.346.tar.gz -> Vulkan-Utility-Libraries-1.4.346.tar.gz
 "
 
 LICENSE="MIT"
@@ -83,7 +83,10 @@ src_unpack() {
 	default
 
 	mkdir nlohmann_json-3.10.5
-	mv {single_,}include LICENSE.MIT meson.build nlohmann_json-3.10.5/
+	mv {single_,}include LICENSE.MIT meson.build nlohmann_json-*/
+
+	mv packagefiles/vulkan-headers/meson.build Vulkan-Headers-*/
+	mv packagefiles/vulkan-utility-libraries/meson.build Vulkan-Utility-Libraries-*/
 }
 multilib_src_configure() {
 	# workaround for lld
