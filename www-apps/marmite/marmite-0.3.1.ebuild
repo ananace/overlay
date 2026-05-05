@@ -7,7 +7,7 @@ EAPI=8
 
 CRATES="
 	adler2@2.0.1
-	aes@0.8.4
+	aes@0.9.0
 	aho-corasick@1.1.4
 	aligned-vec@0.6.4
 	aligned@0.4.3
@@ -142,6 +142,7 @@ CRATES="
 	bitflags@2.11.1
 	bitstream-io@4.10.0
 	block-buffer@0.10.4
+	block-buffer@0.12.0
 	bstr@1.12.1
 	built@0.8.0
 	bumpalo@3.20.2
@@ -150,37 +151,41 @@ CRATES="
 	bytes@1.11.1
 	bzip2@0.6.1
 	caseless@0.2.2
-	cc@1.2.60
+	cc@1.2.61
 	cfg-if@1.0.4
 	chrono-tz-build@0.3.0
 	chrono-tz@0.9.0
 	chrono@0.4.44
 	chunked_transfer@1.5.0
-	cipher@0.4.4
+	cipher@0.5.1
 	clap@4.6.1
 	clap_builder@4.6.0
 	clap_derive@4.6.1
 	clap_lex@1.1.0
+	cmov@0.5.3
 	color_quant@1.1.0
 	colorchoice@1.0.5
 	colored@3.1.1
-	comrak@0.49.0
-	constant_time_eq@0.3.1
+	comrak@0.52.0
+	const-oid@0.10.2
+	constant_time_eq@0.4.2
 	core-foundation-sys@0.8.7
+	cpubits@0.1.1
 	cpufeatures@0.2.17
-	crc-catalog@2.4.0
+	cpufeatures@0.3.0
 	crc32fast@1.5.0
-	crc@3.3.0
 	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
 	crunchy@0.2.4
 	crypto-common@0.1.7
+	crypto-common@0.2.1
+	ctutils@0.4.2
 	darling@0.20.11
 	darling_core@0.20.11
 	darling_macro@0.20.11
-	data-encoding@2.10.0
+	data-encoding@2.11.0
 	deflate64@0.1.12
 	deranged@0.5.8
 	derive_builder@0.20.2
@@ -188,13 +193,14 @@ CRATES="
 	derive_builder_macro@0.20.2
 	deunicode@1.6.2
 	digest@0.10.7
+	digest@0.11.3
 	diligent-date-parser@0.1.5
 	dirs-sys@0.5.0
 	dirs@6.0.0
 	displaydoc@0.2.5
 	dlmalloc@0.2.13
 	either@1.15.0
-	emojis@0.6.4
+	emojis@0.8.1
 	encoding_rs@0.8.35
 	entities@1.0.1
 	env_filter@1.0.1
@@ -205,12 +211,12 @@ CRATES="
 	errno@0.3.14
 	exr@1.74.0
 	fastrand@2.4.1
-	fax@0.2.6
-	fax_derive@0.2.0
+	fax@0.2.7
 	fdeflate@0.3.7
 	file-id@0.1.0
 	filetime@0.2.27
 	find-msvc-tools@0.1.9
+	finl_unicode@1.4.0
 	flate2@1.1.9
 	fnv@1.0.7
 	foldhash@0.1.5
@@ -218,6 +224,9 @@ CRATES="
 	frontmatter-gen@0.0.5
 	fs_extra@1.3.0
 	fsevent-sys@4.1.0
+	futures-core@0.3.32
+	futures-task@0.3.32
+	futures-util@0.3.32
 	generic-array@0.14.7
 	getrandom@0.2.17
 	getrandom@0.3.4
@@ -230,12 +239,13 @@ CRATES="
 	hashbrown@0.15.5
 	hashbrown@0.17.0
 	heck@0.5.0
-	hmac@0.12.1
+	hmac@0.13.0
 	hotwatch@0.5.0
 	http@1.4.0
 	httparse@1.10.1
 	httpdate@1.0.3
 	humansize@2.1.3
+	hybrid-array@0.4.11
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.65
 	icu_collections@2.2.0
@@ -248,31 +258,31 @@ CRATES="
 	id-arena@2.3.0
 	ident_case@1.0.1
 	idna@1.1.0
-	idna_adapter@1.2.1
+	idna_adapter@1.2.2
 	ignore@0.4.25
 	image-webp@0.2.4
 	image@0.25.10
-	imgref@1.12.0
+	imgref@1.12.1
 	indexmap@2.14.0
 	inotify-sys@0.1.5
 	inotify@0.9.6
-	inout@0.1.4
+	inout@0.2.2
 	interpolate_name@0.2.4
 	is_terminal_polyfill@1.70.2
 	itertools@0.14.0
 	itoa@1.0.18
 	jetscii@0.5.3
-	jiff-static@0.2.23
-	jiff@0.2.23
+	jiff-static@0.2.24
+	jiff@0.2.24
 	jobserver@0.1.34
-	js-sys@0.3.95
-	kqueue-sys@1.0.4
+	js-sys@0.3.97
+	kqueue-sys@1.1.0
 	kqueue@1.1.1
 	lazy_static@1.5.0
 	leb128fmt@0.1.0
 	lebe@0.5.3
 	libbz2-rs-sys@0.2.3
-	libc@0.2.185
+	libc@0.2.186
 	libfuzzer-sys@0.4.12
 	libm@0.2.16
 	libredox@0.1.16
@@ -282,7 +292,7 @@ CRATES="
 	lock_api@0.4.14
 	log@0.4.29
 	loop9@0.1.5
-	lzma-rust2@0.15.7
+	lzma-rust2@0.16.2
 	maybe-rayon@0.1.1
 	memchr@2.8.0
 	miniz_oxide@0.8.9
@@ -291,7 +301,7 @@ CRATES="
 	moxcms@0.8.1
 	never@0.1.0
 	new_debug_unreachable@1.0.6
-	no_std_io2@0.9.3
+	no_std_io2@0.9.4
 	nom@8.0.0
 	noop_proc_macro@0.3.0
 	notify-debouncer-full@0.1.0
@@ -311,16 +321,20 @@ CRATES="
 	parse-zoneinfo@0.3.1
 	paste@1.0.15
 	pastey@0.1.1
-	pbkdf2@0.12.2
+	pbkdf2@0.13.0
 	percent-encoding@2.3.2
 	pest@2.8.6
 	pest_derive@2.8.6
 	pest_generator@2.8.6
 	pest_meta@2.8.6
 	phf@0.11.3
+	phf@0.13.1
 	phf_codegen@0.11.3
+	phf_codegen@0.13.1
 	phf_generator@0.11.3
+	phf_generator@0.13.1
 	phf_shared@0.11.3
+	phf_shared@0.13.1
 	pin-project-lite@0.2.17
 	pkg-config@0.3.33
 	plain@0.2.3
@@ -333,8 +347,8 @@ CRATES="
 	ppv-lite86@0.2.21
 	prettyplease@0.2.37
 	proc-macro2@1.0.106
-	profiling-procmacros@1.0.17
-	profiling@1.0.17
+	profiling-procmacros@1.0.18
+	profiling@1.0.18
 	pxfm@0.1.29
 	qoi@0.4.1
 	quick-error@2.0.1
@@ -353,7 +367,7 @@ CRATES="
 	rayon-core@1.13.0
 	rayon@1.12.0
 	redox_syscall@0.5.18
-	redox_syscall@0.7.4
+	redox_syscall@0.7.5
 	redox_users@0.5.2
 	regex-automata@0.4.14
 	regex-syntax@0.8.10
@@ -364,10 +378,11 @@ CRATES="
 	rust-embed-impl@8.11.0
 	rust-embed-utils@8.11.0
 	rust-embed@8.11.0
+	rustc-hash@2.1.2
 	rustix@1.1.4
-	rustls-pki-types@1.14.0
+	rustls-pki-types@1.14.1
 	rustls-webpki@0.103.13
-	rustls@0.23.38
+	rustls@0.23.40
 	rustversion@1.0.22
 	ryu@1.0.23
 	same-file@1.0.6
@@ -381,6 +396,7 @@ CRATES="
 	serde_yaml@0.9.34+deprecated
 	serde_yml@0.0.12
 	sha1@0.10.6
+	sha1@0.11.0
 	sha2@0.10.9
 	shellexpand@3.1.2
 	shlex@1.3.0
@@ -388,7 +404,8 @@ CRATES="
 	simd-adler32@0.3.9
 	simd_helpers@0.1.0
 	simple_logger@5.2.0
-	siphasher@1.0.2
+	siphasher@1.0.3
+	slab@0.4.12
 	slug@0.1.6
 	smallvec@1.15.1
 	socket2@0.6.3
@@ -411,13 +428,13 @@ CRATES="
 	tinyvec@1.11.0
 	tinyvec_macros@0.1.1
 	tokio-macros@2.7.0
-	tokio@1.52.1
+	tokio@1.52.2
 	toml@0.8.23
 	toml_datetime@0.6.11
 	toml_edit@0.22.27
 	toml_write@0.1.2
 	tree-sitter-language@0.1.7
-	tungstenite@0.28.0
+	tungstenite@0.29.0
 	typed-arena@2.0.2
 	typed-path@0.12.3
 	typenum@1.20.0
@@ -426,14 +443,12 @@ CRATES="
 	unicode-normalization@0.1.25
 	unicode-segmentation@1.13.2
 	unicode-xid@0.2.6
-	unicode_categories@0.1.1
 	unsafe-libyaml@0.2.11
 	untrusted@0.9.0
 	ureq-proto@0.6.0
 	ureq@3.3.0
 	url@2.5.8
 	urlencoding@2.1.3
-	utf-8@0.7.6
 	utf8-zero@0.8.1
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
@@ -444,10 +459,10 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.3+wasi-0.2.9
 	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-macro-support@0.2.118
-	wasm-bindgen-macro@0.2.118
-	wasm-bindgen-shared@0.2.118
-	wasm-bindgen@0.2.118
+	wasm-bindgen-macro-support@0.2.120
+	wasm-bindgen-macro@0.2.120
+	wasm-bindgen-shared@0.2.120
+	wasm-bindgen@0.2.120
 	wasm-encoder@0.244.0
 	wasm-metadata@0.244.0
 	wasmparser@0.244.0
@@ -497,11 +512,10 @@ CRATES="
 	zerofrom-derive@0.1.7
 	zerofrom@0.1.7
 	zeroize@1.8.2
-	zeroize_derive@1.4.3
 	zerotrie@0.2.4
 	zerovec-derive@0.11.3
 	zerovec@0.11.6
-	zip@7.2.0
+	zip@8.6.0
 	zlib-rs@0.6.3
 	zmij@1.0.21
 	zopfli@0.8.3
@@ -527,7 +541,7 @@ LICENSE="AGPL-3+"
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
 	CDLA-Permissive-2.0 GPL-3 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0
-	Unlicense ZLIB BZIP2
+	Unicode-DFS-2016 Unlicense ZLIB BZIP2
 "
 SLOT="0"
 KEYWORDS="~amd64"
