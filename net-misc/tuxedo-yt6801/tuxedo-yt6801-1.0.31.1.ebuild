@@ -17,6 +17,10 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="doc"
 
+RDEPEND="
+	!!net-misc/yt6801
+"
+
 upstream_version=$(ver_cut 1-3)
 aspm=1
 
@@ -75,6 +79,6 @@ pkg_postinst() {
 	linux-mod-r1_pkg_postinst
 
 	if [ ${aspm} = 0 ]; then
-		einfo "ASPM support has been disabled due to limitations on your machine"
+		elog "ASPM support has been disabled due to limitations on your machine"
 	fi
 }
