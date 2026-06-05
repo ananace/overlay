@@ -8,9 +8,7 @@ EAPI=8
 CRATES="
 	abnf-core@0.6.0
 	adler2@2.0.0
-	ahash@0.8.11
 	aho-corasick@1.1.3
-	allocator-api2@0.2.18
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anstyle@1.0.8
@@ -18,9 +16,9 @@ CRATES="
 	async-channel@1.9.0
 	async-channel@2.3.1
 	async-executor@1.13.0
-	async-fn-stream@0.2.2
+	async-fn-stream@0.3.2
 	async-fs@2.1.2
-	async-io@2.3.4
+	async-io@2.4.0
 	async-lock@3.4.0
 	async-net@2.0.0
 	async-process@2.2.4
@@ -30,7 +28,7 @@ CRATES="
 	autocfg@1.3.0
 	base64@0.22.1
 	bitflags@1.3.2
-	bitflags@2.6.0
+	bitflags@2.10.0
 	block@0.1.6
 	blocking@1.6.1
 	bounded-static-derive@0.8.0
@@ -56,9 +54,9 @@ CRATES="
 	crossbeam@0.8.4
 	csv-core@0.1.11
 	csv@1.3.0
-	curl-sys@0.4.74+curl-8.9.0
-	curl@0.4.46
-	data-encoding@2.6.0
+	curl-sys@0.4.84+curl-8.17.0
+	curl@0.4.49
+	data-encoding@2.9.0
 	dbus@0.9.7
 	deranged@0.3.11
 	difflib@0.4.0
@@ -71,21 +69,21 @@ CRATES="
 	event-listener-strategy@0.5.2
 	event-listener@2.5.3
 	event-listener@5.3.1
-	fallible-iterator@0.2.0
+	fallible-iterator@0.3.0
 	fallible-streaming-iterator@0.1.9
 	fastrand@1.9.0
 	fastrand@2.1.1
-	filetime@0.2.25
-	flate2@1.0.33
+	flate2@1.1.5
 	float-cmp@0.9.0
 	fnv@1.0.7
+	foldhash@0.1.5
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.1
 	fsevent-sys@4.1.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
-	futures-executor@0.3.30
+	futures-executor@0.3.31
 	futures-io@0.3.31
 	futures-lite@1.13.0
 	futures-lite@2.3.0
@@ -93,10 +91,12 @@ CRATES="
 	futures-sink@0.3.31
 	futures-task@0.3.31
 	futures-util@0.3.31
-	futures@0.3.30
+	futures@0.3.31
 	getrandom@0.2.15
-	hashbrown@0.14.5
-	hashlink@0.8.4
+	getrandom@0.3.4
+	hashbrown@0.15.5
+	hashbrown@0.16.0
+	hashlink@0.10.0
 	heck@0.3.3
 	hermit-abi@0.4.0
 	http@0.2.12
@@ -105,22 +105,23 @@ CRATES="
 	idna@0.5.0
 	imap-codec@2.0.0-alpha.5
 	imap-types@2.0.0-alpha.4
-	indexmap@2.4.0
+	indexmap@2.12.0
 	inotify-sys@0.1.5
-	inotify@0.9.6
+	inotify@0.11.0
 	instant@0.1.13
 	isahc@1.7.2
-	itoa@1.0.11
+	itoa@1.0.15
+	jiff@0.2.1
 	js-sys@0.3.70
 	kqueue-sys@1.0.4
-	kqueue@1.0.8
+	kqueue@1.1.1
 	lazy_static@1.5.0
-	libc@0.2.158
+	libc@0.2.177
 	libdbus-sys@0.2.5
-	libloading@0.8.5
+	libloading@0.8.9
 	libnghttp2-sys@0.1.10+1.61.0
 	libredox@0.1.3
-	libsqlite3-sys@0.26.0
+	libsqlite3-sys@0.35.0
 	libz-sys@1.1.20
 	linkify@0.10.0
 	linux-raw-sys@0.4.14
@@ -131,14 +132,15 @@ CRATES="
 	memoffset@0.9.1
 	mime@0.3.17
 	minimal-lexical@0.2.1
-	miniz_oxide@0.8.0
-	mio@0.8.11
-	native-tls@0.2.12
-	nix@0.29.0
+	miniz_oxide@0.8.9
+	mio@1.0.4
+	native-tls@0.2.14
+	nix@0.30.1
 	nom@7.1.3
 	normalize-line-endings@0.3.0
 	notify-rust@4.11.1
-	notify@6.1.1
+	notify-types@2.0.0
+	notify@8.2.0
 	num-conv@0.1.0
 	num-traits@0.2.19
 	numtoa@0.1.0
@@ -149,8 +151,8 @@ CRATES="
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-src@300.3.1+3.3.1
-	openssl-sys@0.9.103
-	openssl@0.10.66
+	openssl-sys@0.9.109
+	openssl@0.10.73
 	parking@2.2.0
 	percent-encoding@2.3.1
 	pin-project-internal@1.1.5
@@ -160,7 +162,9 @@ CRATES="
 	piper@0.2.4
 	pkg-config@0.3.30
 	polling@2.8.0
-	polling@3.7.3
+	polling@3.7.4
+	portable-atomic-util@0.2.4
+	portable-atomic@1.11.1
 	powerfmt@0.2.0
 	predicates-core@1.0.6
 	predicates-tree@1.0.9
@@ -171,14 +175,14 @@ CRATES="
 	quick-error@1.2.3
 	quick-xml@0.31.0
 	quote@1.0.37
+	r-efi@5.3.0
 	redox_syscall@0.2.16
-	redox_syscall@0.5.3
 	redox_termios@0.1.3
 	redox_users@0.4.6
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
 	regex@1.10.6
-	rusqlite@0.29.0
+	rusqlite@0.37.0
 	rustix@0.38.35
 	rusty-fork@0.3.0
 	ryu@1.0.18
@@ -186,8 +190,9 @@ CRATES="
 	schannel@0.1.23
 	security-framework-sys@2.11.1
 	security-framework@2.11.1
-	serde@1.0.209
-	serde_derive@1.0.209
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	serde_json@1.0.127
 	serde_path_to_error@0.1.16
 	serde_spanned@0.6.7
@@ -195,15 +200,16 @@ CRATES="
 	shlex@1.3.0
 	signal-hook-registry@1.4.2
 	signal-hook@0.3.17
+	simd-adler32@0.3.7
 	slab@0.4.9
 	sluice@0.5.5
-	smallvec@1.13.2
-	smol@2.0.1
-	socket2@0.5.7
+	smallvec@1.15.1
+	smol@2.0.2
+	socket2@0.6.1
 	structopt-derive@0.4.18
 	structopt@0.3.26
 	syn@1.0.109
-	syn@2.0.76
+	syn@2.0.87
 	tauri-winrt-notification@0.2.1
 	tempfile@3.12.0
 	termion@1.5.6
@@ -229,13 +235,14 @@ CRATES="
 	unicode-segmentation@1.11.0
 	unicode-width@0.1.13
 	url@2.5.2
-	uuid@1.10.0
+	uuid@1.16.0
 	vcpkg@0.2.15
 	version_check@0.9.5
 	wait-timeout@0.2.0
 	waker-fn@1.2.0
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
+	wasip2@1.0.1+wasi-0.2.4
 	wasm-bindgen-backend@0.2.93
 	wasm-bindgen-macro-support@0.2.93
 	wasm-bindgen-macro@0.2.93
@@ -249,33 +256,44 @@ CRATES="
 	windows-core@0.56.0
 	windows-implement@0.56.0
 	windows-interface@0.56.0
+	windows-link@0.1.3
+	windows-link@0.2.1
 	windows-result@0.1.2
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
+	windows-sys@0.60.2
 	windows-targets@0.48.5
 	windows-targets@0.52.6
+	windows-targets@0.53.3
 	windows-version@0.1.1
 	windows@0.56.0
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.0
 	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.0
 	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.0
 	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.0
 	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.0
 	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.0
 	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.0
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.0
 	winnow@0.6.18
+	wit-bindgen@0.46.0
 	xdg@2.5.2
-	zerocopy-derive@0.7.35
-	zerocopy@0.7.35
 "
 
 inherit cargo
@@ -289,7 +307,7 @@ SRC_URI="
 
 LICENSE="|| ( EUPL-1.2 GPL-3+ )"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD CC0-1.0 ISC MIT Unicode-DFS-2016"
+LICENSE+=" Apache-2.0 BSD CC0-1.0 ISC MIT Unicode-DFS-2016 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
