@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic qmake-utils virtualx xdg
+inherit cmake flag-o-matic
 
 DESCRIPTION="The OpenCloud Desktop application"
 HOMEPAGE="https://github.com/opencloud-eu/desktop"
@@ -15,7 +15,7 @@ S="${WORKDIR}/desktop-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 RESTRICT=""
 
