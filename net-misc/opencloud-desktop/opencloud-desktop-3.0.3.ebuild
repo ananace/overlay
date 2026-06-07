@@ -28,6 +28,7 @@ DEPEND="
 	dev-qt/qtbase:6[concurrent,network,widgets,xml]
 	dev-libs/qtkeychain
 	dev-libs/kdsingleapplication
+	dev-libs/libregraph-qt
 "
 BDEPEND="
 	kde-frameworks/extra-cmake-modules
