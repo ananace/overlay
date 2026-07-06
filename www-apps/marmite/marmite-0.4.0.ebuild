@@ -17,7 +17,7 @@ CRATES="
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.14
-	anyhow@1.0.102
+	anyhow@1.0.103
 	arbitrary@1.4.2
 	arborium-ada@2.18.1
 	arborium-agda@2.18.1
@@ -137,10 +137,10 @@ CRATES="
 	arborium-zsh@2.18.1
 	arborium@2.18.1
 	arg_enum_proc_macro@0.3.4
-	arrayvec@0.7.7
+	arrayvec@0.7.8
 	as-slice@0.2.1
 	ascii@1.1.0
-	atom_syndication@0.12.8
+	atom_syndication@0.12.9
 	autocfg@1.5.1
 	av-scenechange@0.14.1
 	av1-grain@0.2.5
@@ -152,7 +152,6 @@ CRATES="
 	bitstream-io@4.10.0
 	block-buffer@0.10.4
 	block-buffer@0.12.1
-	bstr@1.12.2
 	built@0.8.1
 	bumpalo@3.20.3
 	bytemuck@1.25.0
@@ -160,10 +159,8 @@ CRATES="
 	bytes@1.12.0
 	bzip2@0.6.1
 	caseless@0.2.2
-	cc@1.2.65
+	cc@1.2.66
 	cfg-if@1.0.4
-	chrono-tz-build@0.3.0
-	chrono-tz@0.9.0
 	chrono@0.4.45
 	chunked_transfer@1.5.0
 	cipher@0.5.2
@@ -175,12 +172,13 @@ CRATES="
 	color_quant@1.1.0
 	colorchoice@1.0.5
 	colored@3.1.1
-	comrak@0.52.0
+	comrak@0.53.0
 	const-oid@0.10.2
 	constant_time_eq@0.4.2
 	cookie@0.18.1
 	cookie_store@0.22.1
 	core-foundation-sys@0.8.7
+	core_maths@0.1.1
 	cpubits@0.1.1
 	cpufeatures@0.2.17
 	cpufeatures@0.3.0
@@ -198,9 +196,9 @@ CRATES="
 	darling_macro@0.20.11
 	data-encoding@2.11.0
 	deflate64@0.1.12
-	defmt-macros@1.1.0
+	defmt-macros@1.1.1
 	defmt-parser@1.0.0
-	defmt@1.1.0
+	defmt@1.1.1
 	deranged@0.5.8
 	derive_builder@0.20.2
 	derive_builder_core@0.20.2
@@ -218,8 +216,8 @@ CRATES="
 	emojis@0.8.2
 	encoding_rs@0.8.35
 	entities@1.0.1
-	env_filter@1.0.1
-	env_logger@0.11.10
+	env_filter@2.0.0
+	env_logger@0.11.11
 	equator-macro@0.4.2
 	equator@0.4.2
 	equivalent@1.0.2
@@ -235,6 +233,8 @@ CRATES="
 	finl_unicode@1.4.0
 	flate2@1.1.9
 	fnv@1.0.7
+	fontconfig-parser@0.5.8
+	fontdb@0.23.0
 	form_urlencoded@1.2.2
 	frontmatter-gen@0.0.6
 	fs_extra@1.3.0
@@ -248,8 +248,6 @@ CRATES="
 	getrandom@0.4.3
 	gif@0.14.2
 	glob@0.3.3
-	globset@0.4.18
-	globwalk@0.9.1
 	half@2.7.1
 	hashbrown@0.17.1
 	heck@0.5.0
@@ -258,8 +256,7 @@ CRATES="
 	http@1.4.2
 	httparse@1.10.1
 	httpdate@1.0.3
-	humansize@2.1.3
-	hybrid-array@0.4.12
+	hybrid-array@0.4.13
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.65
 	icu_collections@2.2.0
@@ -272,12 +269,11 @@ CRATES="
 	ident_case@1.0.1
 	idna@1.1.0
 	idna_adapter@1.2.2
-	ignore@0.4.26
 	image-webp@0.2.4
 	image@0.25.10
 	imgref@1.12.2
 	indexmap@2.14.0
-	inotify-sys@0.1.5
+	inotify-sys@0.1.7
 	inotify@0.9.6
 	inout@0.2.2
 	interpolate_name@0.2.4
@@ -285,10 +281,11 @@ CRATES="
 	itertools@0.14.0
 	itoa@1.0.18
 	jetscii@0.5.3
-	jiff-static@0.2.29
-	jiff@0.2.29
-	jobserver@0.1.34
+	jiff-static@0.2.31
+	jiff@0.2.31
+	jobserver@0.1.35
 	js-sys@0.3.103
+	json5@1.3.1
 	kqueue-sys@1.1.2
 	kqueue@1.2.0
 	lazy_static@1.5.0
@@ -297,16 +294,18 @@ CRATES="
 	libc@0.2.186
 	libfuzzer-sys@0.4.13
 	libm@0.2.16
-	libredox@0.1.17
+	libredox@0.1.18
 	linux-raw-sys@0.12.1
 	litemap@0.8.2
 	litrs@1.0.0
 	lock_api@0.4.14
 	log@0.4.33
 	loop9@0.1.5
-	lzma-rust2@0.16.4
+	lzma-rust2@0.16.5
 	maybe-rayon@0.1.1
 	memchr@2.8.2
+	memmap2@0.9.11
+	mermaid-rs-renderer@0.3.0
 	miniz_oxide@0.8.9
 	mio@0.8.11
 	mio@1.2.1
@@ -318,7 +317,7 @@ CRATES="
 	notify-debouncer-full@0.1.0
 	notify@6.1.1
 	noyalib@0.0.8
-	num-bigint@0.4.6
+	num-bigint@0.4.8
 	num-conv@0.2.2
 	num-derive@0.4.2
 	num-integer@0.1.46
@@ -330,22 +329,13 @@ CRATES="
 	option-ext@0.2.0
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
-	parse-zoneinfo@0.3.1
 	paste@1.0.15
 	pastey@0.1.1
 	pbkdf2@0.13.0
 	percent-encoding@2.3.2
-	pest@2.8.6
-	pest_derive@2.8.6
-	pest_generator@2.8.6
-	pest_meta@2.8.6
-	phf@0.11.3
 	phf@0.13.1
-	phf_codegen@0.11.3
 	phf_codegen@0.13.1
-	phf_generator@0.11.3
 	phf_generator@0.13.1
-	phf_shared@0.11.3
 	phf_shared@0.13.1
 	pin-project-lite@0.2.17
 	pkg-config@0.3.33
@@ -356,23 +346,18 @@ CRATES="
 	powerfmt@0.2.0
 	ppmd-rust@1.4.0
 	ppv-lite86@0.2.21
-	proc-macro-error-attr2@2.0.0
-	proc-macro-error2@2.0.1
 	proc-macro2@1.0.106
 	profiling-procmacros@1.0.18
 	profiling@1.0.18
-	pxfm@0.1.29
+	pxfm@0.1.30
 	qoi@0.4.1
 	quick-error@2.0.1
-	quick-xml@0.39.4
+	quick-xml@0.41.0
 	quote@1.0.46
 	r-efi@5.3.0
 	r-efi@6.0.0
-	rand@0.8.6
 	rand@0.9.4
-	rand_chacha@0.3.1
 	rand_chacha@0.9.0
-	rand_core@0.6.4
 	rand_core@0.9.5
 	rav1e@0.8.1
 	ravif@0.13.0
@@ -385,13 +370,14 @@ CRATES="
 	regex@1.12.4
 	rgb@0.8.53
 	ring@0.17.14
-	rss@2.0.13
+	roxmltree@0.20.0
+	rss@2.1.0
 	rust-embed-impl@8.11.0
 	rust-embed-utils@8.11.0
 	rust-embed@8.11.0
-	rustc-hash@2.1.2
+	rustc-hash@2.1.3
 	rustix@1.1.4
-	rustls-pki-types@1.14.1
+	rustls-pki-types@1.15.0
 	rustls-webpki@0.103.13
 	rustls@0.23.41
 	rustversion@1.0.22
@@ -410,13 +396,14 @@ CRATES="
 	sha2@0.11.0
 	shellexpand@3.1.2
 	shlex@2.0.1
-	shrike@0.1.6
+	shrike@0.2.0
 	signal-hook-registry@1.4.8
 	simd-adler32@0.3.9
 	simd_helpers@0.1.0
 	simple_logger@5.2.0
 	siphasher@1.0.3
 	slab@0.4.12
+	slotmap@1.1.1
 	slug@0.1.6
 	smallvec@1.15.2
 	socket2@0.6.4
@@ -427,13 +414,13 @@ CRATES="
 	syn@2.0.118
 	synstructure@0.13.2
 	tempfile@3.27.0
-	tera@1.20.1
+	tera@2.0.0
 	thiserror-impl@2.0.18
 	thiserror@2.0.18
 	tiff@0.11.3
 	time-core@0.1.9
-	time-macros@0.2.30
-	time@0.3.51
+	time-macros@0.2.31
+	time@0.3.53
 	tiny_http@0.12.0
 	tinystr@0.8.3
 	tinyvec@1.11.0
@@ -445,6 +432,7 @@ CRATES="
 	toml_parser@1.1.2+spec-1.1.0
 	toml_writer@1.1.1+spec-1.1.0
 	tree-sitter-language@0.1.7
+	ttf-parser@0.25.1
 	tungstenite@0.29.0
 	typed-arena@2.0.2
 	typed-path@0.12.3
@@ -452,7 +440,6 @@ CRATES="
 	ucd-trie@0.1.7
 	unicode-ident@1.0.24
 	unicode-normalization@0.1.25
-	unicode-segmentation@1.13.3
 	unsafe-libyaml@0.2.11
 	untrusted@0.9.0
 	ureq-proto@0.6.0
@@ -516,7 +503,7 @@ CRATES="
 	zerovec-derive@0.11.3
 	zerovec@0.11.6
 	zip@8.6.0
-	zlib-rs@0.6.4
+	zlib-rs@0.6.5
 	zmij@1.0.21
 	zopfli@0.8.3
 	zstd-safe@7.2.4
