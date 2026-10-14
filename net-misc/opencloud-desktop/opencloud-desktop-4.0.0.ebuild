@@ -1,1 +1,1 @@
-opencloud-desktop-9999.ebuild
+opencloud-desktop-3.0.3.ebuild
