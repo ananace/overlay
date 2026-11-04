@@ -9,219 +9,359 @@ CRATES="
 	abnf-core@0.6.0
 	adler2@2.0.0
 	aho-corasick@1.1.3
-	android-tzdata@0.1.1
 	android_system_properties@0.1.5
+	anstream@0.6.21
+	anstyle-parse@0.2.7
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
 	anstyle@1.0.8
-	assert_cmd@2.0.13
+	anyhow@1.0.104
+	argon2@0.5.3
+	ascii-canvas@4.0.0
+	assert_cmd@2.2.2
 	async-channel@1.9.0
 	async-channel@2.3.1
 	async-executor@1.13.0
 	async-fn-stream@0.3.2
 	async-fs@2.1.2
+	async-generic@1.1.2
 	async-io@2.4.0
 	async-lock@3.4.0
 	async-net@2.0.0
 	async-process@2.2.4
 	async-signal@0.2.10
 	async-task@4.7.1
+	async-trait@0.1.92
 	atomic-waker@1.1.2
 	autocfg@1.3.0
 	base64@0.22.1
+	base64ct@1.8.3
+	bindgen@0.72.1
+	bit-set@0.8.0
+	bit-set@0.9.1
+	bit-vec@0.8.0
+	bit-vec@0.9.1
 	bitflags@1.3.2
 	bitflags@2.10.0
-	block@0.1.6
+	blake2@0.10.6
+	block-buffer@0.10.4
+	block2@0.6.2
 	blocking@1.6.1
 	bounded-static-derive@0.8.0
 	bounded-static@0.8.0
 	bstr@1.10.0
+	buffered-reader@1.4.1
 	bumpalo@3.16.0
 	bytes@1.7.1
+	bzip2@0.6.1
+	capnp-futures@0.25.2
+	capnp-rpc@0.25.1
+	capnp@0.25.6
+	capnpc@0.25.3
 	castaway@0.1.2
-	cc@1.1.15
+	cc@1.2.64
+	cexpr@0.6.0
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
-	chrono@0.4.38
+	chrono@0.4.45
+	clang-sys@1.9.1
 	clap@2.34.0
+	colorchoice@1.0.5
 	concurrent-queue@2.5.0
 	core-foundation-sys@0.8.7
 	core-foundation@0.9.4
+	cpufeatures@0.2.17
 	crc32fast@1.4.2
-	crossbeam-channel@0.5.13
+	crossbeam-channel@0.5.17
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
 	crossbeam-queue@0.3.11
 	crossbeam-utils@0.8.20
 	crossbeam@0.8.4
+	crypto-common@0.1.7
 	csv-core@0.1.11
 	csv@1.3.0
+	ctor-proc-macro@0.0.7
+	ctor@0.6.3
 	curl-sys@0.4.84+curl-8.17.0
 	curl@0.4.49
 	data-encoding@2.9.0
 	dbus@0.9.7
-	deranged@0.3.11
+	deranged@0.5.9
 	difflib@0.4.0
-	dirs-next@2.0.0
-	dirs-sys-next@0.1.2
-	doc-comment@0.3.3
+	digest@0.10.7
+	directories@5.0.1
+	dirs-sys@0.4.1
+	dirs-sys@0.5.0
+	dirs@6.0.0
+	dirs@7.0.0
+	dispatch2@0.3.1
+	displaydoc@0.2.7
+	dtor-proc-macro@0.0.6
+	dtor@0.1.1
+	dyn-clone@1.0.20
+	either@1.18.0
+	embedded-io@0.7.1
+	ena@0.14.4
 	encoding_rs@0.8.34
+	env_filter@0.1.4
+	env_logger@0.11.6
 	equivalent@1.0.1
-	errno@0.3.9
+	errno@0.3.14
 	event-listener-strategy@0.5.2
 	event-listener@2.5.3
 	event-listener@5.3.1
 	fallible-iterator@0.3.0
 	fallible-streaming-iterator@0.1.9
 	fastrand@1.9.0
-	fastrand@2.1.1
+	fastrand@2.5.0
+	fd-lock@4.0.3
+	filetime@0.2.29
+	find-msvc-tools@0.1.9
+	fixedbitset@0.5.7
 	flate2@1.1.5
 	float-cmp@0.9.0
 	fnv@1.0.7
 	foldhash@0.1.5
+	foldhash@0.2.0
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.1
+	fs2@0.4.3
+	fs_extra@1.3.0
 	fsevent-sys@4.1.0
-	futures-channel@0.3.31
-	futures-core@0.3.31
-	futures-executor@0.3.31
-	futures-io@0.3.31
+	futures-channel@0.3.34
+	futures-core@0.3.34
+	futures-executor@0.3.34
+	futures-io@0.3.34
 	futures-lite@1.13.0
 	futures-lite@2.3.0
-	futures-macro@0.3.31
-	futures-sink@0.3.31
-	futures-task@0.3.31
-	futures-util@0.3.31
-	futures@0.3.31
-	getrandom@0.2.15
+	futures-macro@0.3.34
+	futures-sink@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
+	futures@0.3.34
+	generic-array@0.14.7
+	generic-array@1.4.5
+	gethostname@0.5.0
+	gethostname@1.0.0
+	getrandom@0.2.17
 	getrandom@0.3.4
+	glob@0.3.4
 	hashbrown@0.15.5
-	hashbrown@0.16.0
-	hashlink@0.10.0
+	hashbrown@0.16.1
+	hashbrown@0.17.1
+	hashlink@0.12.2
 	heck@0.3.3
 	hermit-abi@0.4.0
+	hermit-abi@0.5.3
 	http@0.2.12
+	humantime@2.4.0
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.60
+	icu_collections@2.3.0
+	icu_locale_core@2.3.0
+	icu_normalizer@2.3.0
+	icu_normalizer_data@2.3.0
+	icu_properties@2.3.0
+	icu_properties_data@2.3.0
+	icu_provider@2.3.1
 	idna@0.5.0
-	imap-codec@2.0.0-alpha.5
-	imap-types@2.0.0-alpha.4
+	idna@1.1.0
+	idna_adapter@1.2.2
+	imap-codec@2.0.0-alpha.6
+	imap-types@2.0.0-alpha.6
 	indexmap@2.12.0
 	inotify-sys@0.1.5
 	inotify@0.11.0
 	instant@0.1.13
+	is_terminal_polyfill@1.70.2
 	isahc@1.7.2
+	itertools@0.13.0
+	itertools@0.14.0
 	itoa@1.0.15
 	jiff@0.2.1
-	js-sys@0.3.70
+	js-sys@0.3.106
+	keccak@0.1.6
 	kqueue-sys@1.0.4
 	kqueue@1.1.1
+	lalrpop-util@0.22.2
+	lalrpop-util@0.23.1
+	lalrpop@0.22.2
+	lalrpop@0.23.1
 	lazy_static@1.5.0
-	libc@0.2.177
+	libbz2-rs-sys@0.2.5
+	libc@0.2.191
 	libdbus-sys@0.2.5
 	libloading@0.8.9
 	libnghttp2-sys@0.1.10+1.61.0
-	libredox@0.1.3
-	libsqlite3-sys@0.35.0
+	libredox@0.1.25
+	libsqlite3-sys@0.38.2
 	libz-sys@1.1.20
 	linkify@0.10.0
 	linux-raw-sys@0.4.14
-	log@0.4.22
-	mac-notification-sys@0.6.1
-	malloc_buf@0.0.6
+	litemap@0.8.3
+	lock_api@0.4.14
+	log@0.4.33
+	mac-notification-sys@0.6.14
 	memchr@2.7.4
 	memoffset@0.9.1
+	memsec@0.7.0
 	mime@0.3.17
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.9
 	mio@1.0.4
 	native-tls@0.2.14
+	nettle-sys@2.3.2
+	nettle@7.5.0
+	new_debug_unreachable@1.0.6
 	nix@0.30.1
 	nom@7.1.3
 	normalize-line-endings@0.3.0
-	notify-rust@4.11.1
+	notify-rust@4.11.4
 	notify-types@2.0.0
 	notify@8.2.0
-	num-conv@0.1.0
+	num-conv@0.2.2
 	num-traits@0.2.19
+	num_cpus@1.17.0
 	numtoa@0.1.0
-	objc-foundation@0.1.1
-	objc@0.2.7
-	objc_id@0.1.1
+	objc2-core-foundation@0.3.2
+	objc2-encode@4.1.0
+	objc2-foundation@0.3.2
+	objc2@0.6.4
 	once_cell@1.19.0
+	once_cell_polyfill@1.70.2
+	openpgp-cert-d@0.3.4
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-src@300.3.1+3.3.1
 	openssl-sys@0.9.109
 	openssl@0.10.73
+	option-ext@0.2.0
 	parking@2.2.0
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	password-hash@0.5.0
+	paste@1.0.15
 	percent-encoding@2.3.1
+	petgraph@0.7.1
+	petgraph@0.8.3
+	phf_shared@0.11.3
+	phf_shared@0.13.1
 	pin-project-internal@1.1.5
 	pin-project-lite@0.2.14
 	pin-project@1.1.5
-	pin-utils@0.1.0
 	piper@0.2.4
 	pkg-config@0.3.30
 	polling@2.8.0
 	polling@3.7.4
 	portable-atomic-util@0.2.4
 	portable-atomic@1.11.1
+	potential_utf@0.1.6
 	powerfmt@0.2.0
+	precomputed-hash@0.1.1
 	predicates-core@1.0.6
 	predicates-tree@1.0.9
 	predicates@3.1.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.86
+	proc-macro2@1.0.107
 	quick-error@1.2.3
 	quick-xml@0.31.0
-	quote@1.0.37
+	quote@1.0.47
 	r-efi@5.3.0
+	rand_core@0.6.4
+	rayon-core@1.13.0
+	rayon@1.12.0
 	redox_syscall@0.2.16
+	redox_syscall@0.5.18
 	redox_termios@0.1.3
 	redox_users@0.4.6
+	redox_users@0.5.3
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
 	regex@1.10.6
-	rusqlite@0.37.0
+	rsqlite-vfs@0.1.1
+	rusqlite@0.40.2
+	rustc-hash@2.1.3
 	rustix@0.38.35
+	rustversion@1.0.23
 	rusty-fork@0.3.0
-	ryu@1.0.18
+	ryu@1.0.23
 	same-file@1.0.6
 	schannel@0.1.23
+	scopeguard@1.2.0
 	security-framework-sys@2.11.1
 	security-framework@2.11.1
+	sequoia-autocrypt@0.26.0
+	sequoia-cert-store@0.7.6
+	sequoia-directories@0.1.0
+	sequoia-gpg-agent@0.6.2
+	sequoia-ipc@0.36.1
+	sequoia-keystore-backend@0.7.0
+	sequoia-keystore-gpg-agent@0.5.0
+	sequoia-keystore-softkeys@0.7.2
+	sequoia-keystore@0.7.2
+	sequoia-openpgp@2.4.1
+	sequoia-policy-config@0.8.2
+	sequoia-wot@0.15.3
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
 	serde_json@1.0.127
 	serde_path_to_error@0.1.16
 	serde_spanned@0.6.7
+	serde_test2@2.0.0
 	sha1_smol@1.0.1
+	sha1collisiondetection@0.3.4
+	sha2@0.10.9
+	sha3@0.10.9
 	shlex@1.3.0
+	shlex@2.0.1
 	signal-hook-registry@1.4.2
 	signal-hook@0.3.17
 	simd-adler32@0.3.7
+	siphasher@1.0.4
 	slab@0.4.9
 	sluice@0.5.5
 	smallvec@1.15.1
+	smawk@0.3.3
 	smol@2.0.2
 	socket2@0.6.1
+	sqlite-wasm-rs@0.5.5
+	sqz@0.1.0
+	stable_deref_trait@1.2.1
+	stfu8@0.2.7
+	string_cache@0.8.9
+	string_cache@0.9.0
 	structopt-derive@0.4.18
 	structopt@0.3.26
+	subtle@2.6.1
 	syn@1.0.109
 	syn@2.0.87
+	syn@3.0.5
+	synstructure@0.14.0
 	tauri-winrt-notification@0.2.1
 	tempfile@3.12.0
+	term@1.2.1
+	terminal_size@0.4.1
 	termion@1.5.6
 	termtree@0.4.1
 	textwrap@0.11.0
-	thiserror-impl@1.0.63
-	thiserror@1.0.63
-	time-core@0.1.2
-	time-macros@0.2.18
-	time@0.3.36
+	textwrap@0.16.4
+	thiserror-impl@1.0.69
+	thiserror-impl@2.0.18
+	thiserror@1.0.69
+	thiserror@2.0.18
+	time-core@0.1.9
+	time-macros@0.2.32
+	time@0.3.55
+	tinystr@0.8.4
 	tinyvec@1.8.0
 	tinyvec_macros@0.1.1
+	tokio-macros@2.6.1
+	tokio-util@0.7.19
+	tokio@1.50.0
 	toml@0.8.19
 	toml_datetime@0.6.8
 	toml_edit@0.22.20
@@ -229,12 +369,17 @@ CRATES="
 	tracing-core@0.1.32
 	tracing-futures@0.2.5
 	tracing@0.1.40
+	typenum@1.20.1
 	unicode-bidi@0.3.15
 	unicode-ident@1.0.12
 	unicode-normalization@0.1.23
 	unicode-segmentation@1.11.0
 	unicode-width@0.1.13
+	unicode-width@0.2.2
+	unicode-xid@0.2.6
 	url@2.5.2
+	utf8_iter@1.0.4
+	utf8parse@0.2.2
 	uuid@1.16.0
 	vcpkg@0.2.15
 	version_check@0.9.5
@@ -243,11 +388,10 @@ CRATES="
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-backend@0.2.93
-	wasm-bindgen-macro-support@0.2.93
-	wasm-bindgen-macro@0.2.93
-	wasm-bindgen-shared@0.2.93
-	wasm-bindgen@0.2.93
+	wasm-bindgen-macro-support@0.2.129
+	wasm-bindgen-macro@0.2.129
+	wasm-bindgen-shared@0.2.129
+	wasm-bindgen@0.2.129
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -263,6 +407,7 @@ CRATES="
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-sys@0.60.2
+	windows-sys@0.61.2
 	windows-targets@0.48.5
 	windows-targets@0.52.6
 	windows-targets@0.53.3
@@ -293,7 +438,16 @@ CRATES="
 	windows_x86_64_msvc@0.53.0
 	winnow@0.6.18
 	wit-bindgen@0.46.0
+	writeable@0.6.4
 	xdg@2.5.2
+	xxhash-rust@0.8.19
+	yoke-derive@0.8.4
+	yoke@0.8.3
+	zerofrom-derive@0.1.8
+	zerofrom@0.1.8
+	zerotrie@0.2.5
+	zerovec-derive@0.11.6
+	zerovec@0.11.8
 "
 
 inherit cargo
@@ -307,13 +461,18 @@ SRC_URI="
 
 LICENSE="|| ( EUPL-1.2 GPL-3+ )"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD CC0-1.0 ISC MIT Unicode-DFS-2016 ZLIB"
+LICENSE+="
+	Apache-2.0 BSD Boost-1.0 CC0-1.0 ISC LGPL-2+ MIT MPL-2.0 Unicode-3.0
+	Unicode-DFS-2016 ZLIB BZIP2
+	|| ( GPL-2 GPL-3 LGPL-3 )
+"
 SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="
-        dbus? ( sys-apps/dbus )
-        gpg? ( app-crypt/gpgme )
+	dbus? ( sys-apps/dbus )
+	gpg? ( app-crypt/gpgme )
+	dev-libs/capnproto
 "
 
 IUSE="+dbus +smtp +sqlite3 static gpg notmuch jmap"
@@ -321,16 +480,16 @@ IUSE="+dbus +smtp +sqlite3 static gpg notmuch jmap"
 S="${WORKDIR}/${PN}"
 
 src_configure() {
-        local myfeatures=(
-                $(usex dbus dbus-notifications "")
-                $(usex gpg gpgme "")
-                $(usev smtp)
-                $(usev sqlite3)
-                $(usev notmuch)
-                $(usev jmap)
-                $(usev static)
-        )
-        cargo_src_configure
+	local myfeatures=(
+		$(usex dbus dbus-notifications "")
+		$(usex gpg gpgme "")
+		$(usev smtp)
+		$(usev sqlite3)
+		$(usev notmuch)
+		$(usev jmap)
+		$(usev static)
+	)
+	cargo_src_configure
 }
 
 src_install() {
