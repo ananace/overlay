@@ -74,10 +74,6 @@ src_install() {
 	# Install the documentation
 	use doc && dodoc "${S}/usr/src/tuxedo-yt6801-${simplified_version}/Notice.txt"
 
-	# Blacklist upstream dwmac-motorcomm module starting from kernel 7.0
-	insinto /usr/lib/modprobe.d
-	newins "${S}/usr/lib/modprobe.d/tuxedo-yt6801-backlist-upstream-conflicts.conf" tuxedo-yt6801-blacklist-upstream-conflicts.conf
-
 	linux-mod-r1_src_install
 }
 
@@ -85,11 +81,11 @@ pkg_postinst() {
 	linux-mod-r1_pkg_postinst
 
 	if [ ${aspm} = 0 ]; then
-		elog "ASPM support has been disabled due to limitations on your machine"
+		elog "ASPM support has been disabled due to limitations on your machine."
 	fi
 
 	if linux_config_exists && $(linux_chkconfig_present DWMAC_MOTORCOMM); then
-		elog "YT6801 is supported upstream starting from kernel 7.0"
-		elog "You may consider unmerging this package."
+		ewarn "YT6801 is now supported in the kernel.\n"\
+		"You should unmerge this package or blacklist the dwmac-motorcomm module."
 	fi
 }
