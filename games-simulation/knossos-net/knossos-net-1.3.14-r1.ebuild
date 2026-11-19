@@ -56,22 +56,16 @@ tmds.dbus.protocol@0.21.3
 windowsshortcutfactory@1.2.0
 "
 
-inherit dotnet-pkg
+inherit dotnet-pkg xdg-utils
 
 DESCRIPTION="Knossos.NET, also known as KNet, is a multi-platform launcher for Freespace 2 Open"
 HOMEPAGE="https://github.com/KnossosNET/Knossos.NET"
 
-if [[ "${PV}" == *9999* ]] ; then
-	inherit git-r3
+SRC_URI="https://github.com/KnossosNET/Knossos.NET/archive/refs/tags/v${PV}.tar.gz
+	-> ${P}.tar.gz"
+S="${WORKDIR}/Knossos.NET-${PV}"
 
-	EGIT_REPO_URI="https://github.com/KnossosNET/Knossos.NET.git"
-else
-	SRC_URI="https://github.com/KnossosNET/Knossos.NET/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.tar.gz"
-	S="${WORKDIR}/Knossos.NET-${PV}"
-
-	KEYWORDS="~amd64"
-fi
+KEYWORDS="~amd64"
 
 SRC_URI+=" ${NUGET_URIS} "
 
@@ -86,16 +80,43 @@ DOTNET_PKG_RESTORE_EXTRA_ARGS=(
 DOTNET_PKG_BUILD_EXTRA_ARGS=( "${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}" )
 DOTNET_PKG_TEST_EXTRA_ARGS=( "${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}" )
 
-src_unpack() {
-	dotnet-pkg_src_unpack
+src_prepare() {
+	dotnet-pkg_src_prepare
 
-	if [[ -n ${EGIT_REPO_URI} ]] ; then
-		git-r3_src_unpack
-	fi
+	# Based on ci/create_appimage.sh
+	(
+		source ./packaging/vars
+
+		export _NAME="$NAME"
+		export _ID="$ID"
+		export _VERSION="$VERSION"
+
+		envsubst < "packaging/linux/knossos.metainfo.xml.in" > "packaging/linux/${ID}.appdata.xml"
+		envsubst < "packaging/linux/knossos.desktop.in" > "packaging/linux/${ID}.desktop"
+	)
 }
 
 src_install() {
 	dotnet-pkg_src_install
 
 	dosym /usr/share/${P}/Knossos.NET /usr/bin/Knossos.NET
+
+	insinto /usr/share/applications
+	doins packaging/linux/io.github.knossosnet.Knossos_NET.desktop
+	insinto /usr/share/metainfo
+	doins packaging/linux/io.github.knossosnet.Knossos_NET.appdata.xml
+
+	ICON_SIZES="512 256 128 96 64 48"
+	for size in $ICON_SIZES; do
+		insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
+		newins "packaging/linux/knossos-${size}.png" io.github.knossosnet.Knossos_NET.png
+	done
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
